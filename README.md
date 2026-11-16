@@ -1,182 +1,130 @@
 🎬 CinéFile
-Le cinéma se découvre, se partage et se vit ensemble.
+Le cinéma se découvre, se regarde et se partage.
 
-CinéFile est un réseau social dédié aux passionnés de cinéma. Découvrez des films grâce à leurs bandes-annonces, trouvez où les regarder, partagez vos critiques, créez vos listes et suivez l'activité cinématographique de vos amis.
+CinéFile est un réseau social dédié aux passionnés de cinéma. Découvrez des films, visionnez leurs bandes-annonces, trouvez où les regarder, partagez vos critiques et suivez l'activité de vos amis.
 
-« Tu vois une bande-annonce, tu sais en un clic sur quelle plateforme la regarder, tu notes le film, et tes amis voient ce que tu en as pensé. »
-📖 Présentation du projet
+Présentation
 
-CinéFile est un projet de groupe réalisé dans le cadre de la formation Concepteur Développeur d'Applications (CDA).
+Réalisé dans le cadre d'un projet de groupe en formation Concepteur Développeur d'Applications (CDA), CinéFile s'inspire de Letterboxd et des réseaux sociaux dédiés au cinéma.
 
-Inspiré de plateformes comme Letterboxd, le projet reprend les fonctionnalités de journal cinématographique, de notation, de listes personnalisées et de suivi d'autres utilisateurs.
+L'objectif est de proposer une plateforme qui rassemble toutes les étapes de l'expérience cinématographique : de la découverte d'un film jusqu'au partage de son avis.
 
-Notre objectif est d'aller plus loin en plaçant la bande-annonce et la disponibilité des films au centre de l'expérience.
+Le concept en une phrase :
 
-L'application permettra notamment de :
+Vous découvrez une bande-annonce, trouvez en un clic où regarder le film, partagez votre critique et découvrez ce qu'en pensent vos amis.
 
-Découvrir un catalogue de films.
+Fonctionnalités
+
+Le projet est organisé autour d'un MVP (Minimum Viable Product) comprenant huit fonctionnalités principales.
+
+Découvrir des films
+Consulter un catalogue de films.
+Rechercher un film par son titre.
+Filtrer les résultats par genre.
+Accéder à une fiche détaillée pour chaque film.
+Regarder des bandes-annonces
 Visionner les bandes-annonces directement depuis les fiches films.
-Identifier les plateformes proposant un film en France.
-Noter et rédiger des critiques.
-Organiser ses films dans des listes personnalisées.
-Suivre d'autres membres et consulter leur activité.
-
-Contrairement à notre première application MovieApp, qui reposait sur 13 films enregistrés directement dans le code, CinéFile repart de zéro avec une véritable base de données et des données utilisateurs persistantes.
-
-Le projet constitue ainsi une application Full-Stack reposant sur une architecture séparant le front-end, le back-end et la base de données.
-
-✨ Fonctionnalités
-
-Le développement est organisé autour d'un MVP (Minimum Viable Product) de 8 fonctionnalités principales.
-
-🎞️ Découverte et films
-Consultation d'un catalogue de films.
-Recherche par titre.
-Filtrage par genre.
-Fiches détaillées pour chaque film.
-Lecteur intégré pour les bandes-annonces YouTube.
-Consultation des plateformes de disponibilité en France.
-▶️ File « Lire ensuite »
-Ajouter des films à regarder plus tard.
-Enchaîner les bandes-annonces.
-Organiser ses prochaines découvertes.
-⭐ Avis et notation
-Noter un film de 0,5 à 5 étoiles.
+Intégrer un lecteur YouTube.
+Ajouter des bandes-annonces à une file « Lire ensuite ».
+Trouver où regarder un film
+Consulter les plateformes disponibles en France.
+Distinguer les offres par abonnement, location et achat.
+Partager ses avis
+Attribuer une note de 0,5 à 5 étoiles.
 Rédiger une critique.
+Modifier ou supprimer son propre avis.
 Consulter les avis des autres membres.
-Modifier ou supprimer ses propres avis.
-Un seul avis par film et par utilisateur.
-📚 Listes personnalisées
-Créer des listes de films.
+Organiser ses films
+Créer des listes personnalisées.
+Ajouter et retirer des films.
 Renommer et supprimer ses listes.
-Ajouter ou retirer des films.
-Réorganiser les films dans une liste.
-👥 Réseau social
-Créer un compte utilisateur.
-Se connecter et se déconnecter.
+Réorganiser les films dans ses collections.
+Suivre ses amis
+Créer un compte et gérer son profil.
 Suivre ou ne plus suivre d'autres membres.
-Consulter le fil d'activité des personnes suivies.
-Découvrir les films appréciés par ses amis.
-🚀 Évolutions envisagées (V2)
-Profils publics enrichis.
+Consulter leur activité.
+Découvrir leurs avis et leurs listes.
+Évolutions envisagées
+
+Une fois le MVP terminé et testé, plusieurs fonctionnalités pourront enrichir l'application :
+
+Profils publics détaillés.
 Likes sur les avis et les listes.
 Commentaires sur les critiques.
-Journal de visionnage avec date.
+Journal personnel de visionnage.
 Signalement et modération des avis.
-Recommandations basées sur les notes des personnes suivies.
-👤 Types d'utilisateurs
-Profil	Fonctionnalités
-Visiteur	Parcourir le catalogue, rechercher des films, regarder les bandes-annonces, consulter les plateformes et lire les avis publics.
-Membre	Toutes les fonctionnalités visiteur, avec en plus la publication d'avis, la création de listes et le suivi d'autres membres.
-Administrateur	Modérer les avis signalés, gérer les comptes et mettre à jour les fiches films.
-🔄 Parcours utilisateur
+Recommandations personnalisées.
+Technologies
 
-Le parcours principal de l'application repose sur six étapes :
+Les technologies envisagées pour le développement sont les suivantes :
 
-Découvrir : explorer les films tendance, rechercher un titre ou filtrer par genre.
-Regarder : consulter une fiche film et visionner sa bande-annonce.
-Trouver : identifier les plateformes proposant le film en France.
-Partager : noter le film et rédiger une critique.
-Organiser : ajouter le film à une liste personnalisée.
-Échanger : suivre ses amis et découvrir leurs avis et leurs listes.
+Front-end
 
-Ce parcours constitue également le fil conducteur de la démonstration finale du projet.
+React
+TypeScript
+Tailwind CSS
+daisyUI
 
-🏗️ Architecture technique
+Back-end
 
-CinéFile repose sur une architecture en trois briques principales :
+Node.js
+API REST
+JWT pour l'authentification
+Zod pour la validation des données
+bcrypt pour le hachage des mots de passe
 
-Brique	Technologie	Rôle
-Front-end	React + TypeScript	Interface utilisateur et navigation
-Back-end	Node.js	API REST et logique métier
-Base de données	PostgreSQL	Stockage des comptes, avis, listes et films
-Services externes
-TMDB (The Movie Database) : récupération des informations des films, affiches, genres, bandes-annonces et plateformes de disponibilité.
-YouTube : lecture des bandes-annonces intégrées aux fiches films.
-JustWatch : source des données de disponibilité des plateformes, via TMDB.
-Outils complémentaires envisagés
-Tailwind CSS et daisyUI : interface et composants graphiques.
-Zod : validation des données entrantes.
-JWT : authentification.
-bcrypt : hachage des mots de passe.
-Vitest et Supertest : tests automatisés.
-Postman : tests de l'API.
-Git et GitHub : versionnement et collaboration.
-Kanban : organisation des tâches.
+Base de données
 
-Les choix techniques restent à valider avec le formateur.
+PostgreSQL
 
-🗄️ Gestion des données
+Tests et outils
 
-Le projet distingue deux catégories de données.
+Vitest
+Supertest
+Postman
+Git et GitHub
+Kanban
 
-Données provenant de TMDB
-Titres et résumés des films.
-Affiches et visuels.
-Genres et années de sortie.
+La stack technique reste à valider avec le formateur.
+
+Sources de données
+
+CinéFile utilise principalement l'API TMDB (The Movie Database) pour récupérer les informations cinématographiques.
+
+Les données utilisées comprennent :
+
+Titres, résumés et dates de sortie.
+Affiches et genres.
 Bandes-annonces YouTube.
-Plateformes de streaming disponibles en France.
-Données propres à CinéFile
-Comptes utilisateurs.
-Avis et notes.
-Listes personnalisées.
-Relations entre abonnés et abonnements.
-Films enregistrés dans les listes.
-Fonctionnement de l'intégration TMDB
+Plateformes de disponibilité en France.
 
-Le front-end ne communique jamais directement avec TMDB.
+Les bandes-annonces sont lues via le lecteur YouTube intégré.
 
-Lorsqu'un utilisateur consulte un film pour la première fois :
+Les informations de disponibilité proviennent de JustWatch via TMDB et sont réparties en trois catégories :
 
-Le front-end effectue une requête vers notre API.
-Le back-end interroge TMDB.
-Les informations récupérées sont enregistrées dans notre base PostgreSQL.
-Le back-end transmet les données au front-end.
+Abonnement.
+Location.
+Achat.
+Gestion des données
 
-Lors des consultations suivantes, les informations sont récupérées directement depuis notre base de données.
+Le front-end communique exclusivement avec notre propre API.
 
-Cette approche permet de protéger la clé API TMDB et de conserver des relations cohérentes entre les films et les données créées par les utilisateurs.
+Lorsqu'un film est consulté pour la première fois, le back-end récupère ses informations depuis TMDB, les enregistre dans PostgreSQL puis les transmet au front-end.
 
-🔐 Sécurité et bonnes pratiques
+Les consultations suivantes utilisent les données enregistrées dans notre base.
 
-La sécurité et la gestion des données font partie intégrante du projet.
+Cette architecture permet de protéger la clé API et de relier les films aux données créées par les utilisateurs.
 
-Mots de passe hachés avec bcrypt.
-Authentification par jeton JWT.
-Routes protégées selon les droits des utilisateurs.
-Validation des données entrantes avec Zod.
-Clé API TMDB stockée dans un fichier .env.
-Fichier .env exclu du dépôt Git grâce au .gitignore.
-Vérification des droits avant modification ou suppression des données.
-Aucun mot de passe transmis dans les réponses de l'API.
-📡 API REST
+Architecture
 
-L'API sera organisée autour de plusieurs domaines fonctionnels.
+Le projet repose sur trois composants principaux :
 
-Méthode	Route	Description
-POST	/api/auth/register	Inscription
-POST	/api/auth/login	Connexion
-GET	/api/films	Catalogue et recherche
-GET	/api/films/:id	Détails d'un film
-GET	/api/films/:id/avis	Avis d'un film
-POST	/api/films/:id/avis	Publier un avis
-PUT	/api/avis/:id	Modifier un avis
-DELETE	/api/avis/:id	Supprimer un avis
-GET	/api/utilisateurs/:id/listes	Consulter les listes d'un membre
-POST	/api/listes	Créer une liste
-PUT	/api/listes/:id	Modifier une liste
-DELETE	/api/listes/:id	Supprimer une liste
-POST	/api/listes/:id/films	Ajouter un film à une liste
-DELETE	/api/listes/:id/films/:filmId	Retirer un film d'une liste
-POST	/api/utilisateurs/:id/suivre	Suivre un membre
-DELETE	/api/utilisateurs/:id/suivre	Ne plus suivre un membre
-GET	/api/fil	Consulter le fil d'activité
+Front-end : interface utilisateur développée avec React et TypeScript.
+Back-end : API REST développée avec Node.js.
+Base de données : PostgreSQL pour stocker les comptes, les avis, les listes et les données cinématographiques mises en cache.
+Modélisation des données
 
-Cette liste constitue une première ébauche. Les routes seront précisées pendant la phase de conception.
-
-🧩 Modélisation des données
-
-La conception initiale du modèle de données repose sur 6 entités principales :
+La conception initiale repose sur six entités principales :
 
 UTILISATEUR
 FILM
@@ -185,93 +133,94 @@ LISTE
 GENRE
 PLATEFORME
 
-Les principales associations sont :
+Les associations permettent notamment de gérer les abonnements entre utilisateurs, les avis, les listes de films, les genres et les plateformes de disponibilité.
 
-Un utilisateur suit d'autres utilisateurs.
-Un utilisateur possède plusieurs listes.
-Un utilisateur rédige des avis.
-Un avis concerne un film.
-Une liste contient plusieurs films.
-Un film appartient à un ou plusieurs genres.
-Un film est disponible sur différentes plateformes.
-
-Les associations plusieurs-à-plusieurs seront notamment matérialisées par des tables dédiées dans PostgreSQL.
-
-La modélisation suivra les étapes MERISE :
+La conception de la base de données suit la méthode MERISE :
 
 Dictionnaire de données.
 MCD (Modèle Conceptuel de Données).
 MLD (Modèle Logique de Données).
 MPD (Modèle Physique de Données).
-📅 Organisation du projet
+Sécurité
 
-Le développement est réparti sur quatre semaines.
+Plusieurs bonnes pratiques sont prévues dès la conception :
 
-Période	Objectifs
-Semaine 1	Conception, cahier des charges, user stories, maquettes, MERISE, API et organisation Git.
-Semaine 2	Développement back-end, base PostgreSQL, API REST et authentification.
-Semaine 3	Développement front-end, navigation, formulaires et intégration de l'API.
-Semaine 4	Tests, corrections, responsive design, accessibilité et préparation de la démonstration.
+Hachage des mots de passe avec bcrypt.
+Authentification avec JWT.
+Protection des routes selon les permissions.
+Validation des données entrantes.
+Stockage des informations sensibles dans un fichier .env.
+Exclusion des fichiers sensibles du dépôt Git.
+Organisation du projet
+
+Le développement est réparti sur quatre semaines :
+
+Semaine 1 – Conception
+
+Cahier des charges et user stories.
+Maquettes des interfaces.
+Modélisation MERISE.
+Définition des routes API.
+Mise en place du dépôt Git et du Kanban.
+
+Semaine 2 – Back-end
+
+Création de la base PostgreSQL.
+Développement de l'API REST.
+Authentification et validation.
+Tests des routes avec Postman.
+
+Semaine 3 – Front-end
+
+Développement des interfaces.
+Navigation et formulaires.
+Connexion à l'API.
+Gestion des états de chargement et des erreurs.
+
+Semaine 4 – Qualité
+
+Tests automatisés.
+Corrections et améliorations.
+Responsive design et accessibilité.
+Préparation de la démonstration finale.
 Organisation collaborative
 Une branche Git par fonctionnalité.
-Une Pull Request par contribution.
-Relecture du code par un autre membre avant chaque fusion.
-Un point d'équipe quotidien de 15 minutes.
-Suivi des tâches via un tableau Kanban.
+Une Pull Request avant chaque fusion.
+Relecture du code par un autre membre.
+Un point d'équipe quotidien.
+Suivi du travail avec un tableau Kanban.
+Installation
 
-Le MVP reste prioritaire : les fonctionnalités V2 ne seront développées qu'une fois le périmètre initial terminé et testé.
+Les instructions d'installation seront complétées lors de la mise en place de l'architecture technique.
 
-⚙️ Installation et configuration
+Prérequis prévus :
 
-Les instructions détaillées d'installation seront ajoutées lors de la mise en place du front-end, du back-end et de la base de données.
-
-Prérequis prévus
 Node.js et npm.
 PostgreSQL.
 Git.
 Une clé API TMDB.
-Variables d'environnement
 
-Les informations sensibles seront stockées dans un fichier .env, qui ne doit jamais être envoyé sur GitHub.
+Les variables d'environnement seront documentées dans un fichier .env.example. Le fichier .env contenant les véritables secrets ne sera jamais versionné.
 
-Exemple de configuration :
+Crédits
 
-env
-PORT=3000
-DATABASE_URL=postgresql://user:password@localhost:5432/cinefile
-TMDB_API_KEY=your_tmdb_api_key
-JWT_SECRET=your_jwt_secret
+Ce projet utilise les données et les services de TMDB à des fins pédagogiques et non commerciales.
 
-⚠️ Conditions d'utilisation des données externes
-
-Le projet utilise l'API TMDB dans un cadre pédagogique et non commercial.
-
-Les conditions d'utilisation imposent notamment :
-
-L'affichage du logo TMDB et de sa mention officielle.
-L'affichage de la mention JustWatch à proximité des informations de disponibilité.
-Le respect des conditions de conservation et d'actualisation des données.
-L'utilisation des liens de disponibilité fournis par TMDB, sans créer de liens directs non autorisés vers les plateformes.
-
-Mention officielle TMDB :
+Les conditions d'utilisation de TMDB imposent notamment l'affichage de son logo et de la mention suivante :
 
 This website uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB.
 
-Sources :
+Les données de disponibilité sont fournies par JustWatch via TMDB.
 
-TMDB – Documentation API
-TMDB – Conditions d'utilisation
-TMDB – Watch Providers
-👨‍💻 Équipe projet
+Documentation :
+
+TMDB API
+TMDB API Terms of Use
+TMDB Watch Providers
+Équipe
 
 Projet collaboratif réalisé dans le cadre de la formation Concepteur Développeur d'Applications (CDA).
 
-Membre	Rôle
-À définir	Développement
-À définir	Développement
-À définir	Développement
-🎯 Objectif final
+Les membres et leurs contributions seront renseignés au fur et à mesure du développement.
 
-Livrer une application Full-Stack fonctionnelle permettant aux passionnés de cinéma de découvrir des films, de partager leurs avis et de construire leur propre réseau cinématographique.
-
-CinéFile — Découvrez, regardez, notez et partagez votre cinéma. 🍿
+CinéFile — Le cinéma est encore meilleur quand il se partage. 🎬
