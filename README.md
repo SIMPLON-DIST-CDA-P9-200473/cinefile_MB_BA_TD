@@ -312,9 +312,9 @@ Projet collaboratif réalisé dans le cadre de la formation **Concepteur Dévelo
 
 | Membre | Contribution |
 |---|---|
-| À définir | Développement |
-| À définir | Développement |
-| À définir | Développement |
+| Mathieu | Développement |
+| Béni | Développement |
+| Thibault | Développement |
 
 ---
 
