@@ -1,11 +1,12 @@
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
+  output   = "../generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
+
 model Role {
   id      Int      @id @default(autoincrement())
   nom     String   @unique
@@ -13,17 +14,17 @@ model Role {
 }
 
 model Membre {
-  id        Int    @id @default(autoincrement())
-  pseudo    String @unique
-  nom       String
-  prenom    String
-  email     String @unique
-  motDePasse String
+  id               Int      @id @default(autoincrement())
+  pseudo           String   @unique
+  nom              String
+  prenom           String
+  email            String   @unique
+  motDePasse       String
 
   avatar           String?
   dateInscription  DateTime @default(now())
   biographie       String?
 
-  roleId Int
-  role   Role @relation(fields: [roleId], references: [id])
+  roleId           Int
+  role             Role @relation(fields: [roleId], references: [id])
 }
