@@ -1,0 +1,6 @@
+# Secrets : chacun crée son .env à partir de .env.example
+.env
+.env.*
+!.env.example
+
+.DS_Store

@@ -1,0 +1,54 @@
+# Lancer toute la stack : docker compose up --build
+# Les variables viennent du fichier .env à côté de ce fichier (voir .env.example).
+
+x-database-url: &database-url
+  # Dans Docker, la base s'appelle "db" (et non localhost).
+  DATABASE_URL: postgresql://${POSTGRES_USER:-cinefile}:${POSTGRES_PASSWORD:-cinefile}@db:5432/${POSTGRES_DB:-cinefile}
+
+services:
+  db:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-cinefile}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-cinefile}
+      POSTGRES_DB: ${POSTGRES_DB:-cinefile}
+    ports:
+      - "5432:5432" # accessible depuis le Mac en localhost:5432 (npm run dev, Prisma Studio)
+    volumes:
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Applique les migrations Prisma puis s'arrête.
+  migrate:
+    build:
+      context: ./cinefile
+      target: migrate
+    environment:
+      <<: *database-url
+    depends_on:
+      db:
+        condition: service_healthy
+
+  app:
+    build:
+      context: ./cinefile
+      target: runner
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      <<: *database-url
+    ports:
+      - "3000:3000"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+volumes:
+  pgdata:

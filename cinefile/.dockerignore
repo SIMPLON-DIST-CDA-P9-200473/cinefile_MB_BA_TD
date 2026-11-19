@@ -1,0 +1,21 @@
+# Réinstallés ou régénérés pendant le build
+node_modules
+.next
+generated
+*.tsbuildinfo
+next-env.d.ts
+
+# Secrets : jamais dans l'image, ils sont passés au lancement (-e / --env-file)
+.env*
+
+# Inutile pour l'image
+.git
+.gitignore
+.vscode
+docs
+README.md
+AGENTS.md
+Dockerfile
+.dockerignore
+npm-debug.log*
+.DS_Store
