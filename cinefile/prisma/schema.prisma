@@ -52,3 +52,41 @@ model Plateforme {
   nomPlateforme     String @unique
   logoPlateforme    String
 }
+
+model Acteur {
+  idActeur       Int    @id @default(autoincrement())
+  idTmdbActeur   Int    @unique
+  nomActeur      String
+  imageActeur    String?
+
+  films          FilmActeur[]
+}
+
+model Realisateur {
+  idRealisateur      Int    @id @default(autoincrement())
+  idTmdbRealisateur  Int    @unique
+  nomRealisateur     String
+  imageRealisateur   String?
+
+  films              FilmRealisateur[]
+}
+
+model FilmActeur {
+  filmId    Int
+  acteurId  Int
+
+  film       Film   @relation(fields: [filmId], references: [idFilm])
+  acteur     Acteur @relation(fields: [acteurId], references: [idActeur])
+
+  @@id([filmId, acteurId])
+}
+
+model FilmRealisateur {
+  filmId        Int
+  realisateurId Int
+
+  film          Film         @relation(fields: [filmId], references: [idFilm])
+  realisateur   Realisateur  @relation(fields: [realisateurId], references: [idRealisateur])
+
+  @@id([filmId, realisateurId])
+}
