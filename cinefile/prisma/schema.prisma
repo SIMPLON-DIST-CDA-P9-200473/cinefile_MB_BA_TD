@@ -28,3 +28,27 @@ model Membre {
   roleId           Int
   role             Role @relation(fields: [roleId], references: [id])
 }
+
+model Film {
+  idFilm          Int       @id @default(autoincrement())
+  idTmdbFilm      Int       @unique
+  titreFilm       String
+  dateSortieFilm  DateTime
+  resumeFilm      String
+  bandeAnnonceFilm String?
+  afficheFilm     String
+
+  avis            Avis[]
+}
+
+model Genre {
+  idGenre   Int    @id @default(autoincrement())
+  nomGenre  String @unique
+}
+
+model Plateforme {
+  idPlateforme      Int    @id @default(autoincrement())
+  idTmdbPlateforme  Int    @unique
+  nomPlateforme     String @unique
+  logoPlateforme    String
+}
