@@ -64,7 +64,7 @@ model Liste {
   dateCreationListe DateTime @default(now())
 
   membreId Int
-  membre   Membre @relation(fields: [membreId], references: [id])
+  membre   Membre @relation(fields: [membreId], references: [id], onDelete: Cascade)
 
   films Contenir[]
 }
@@ -75,10 +75,11 @@ model Contenir {
   positionFilmListe Int
   dateAjoutListe    DateTime @default(now())
 
-  liste Liste @relation(fields: [listeId], references: [idListe])
+  liste Liste @relation(fields: [listeId], references: [idListe], onDelete: Cascade)
   film  Film  @relation(fields: [filmId], references: [idFilm])
 
   @@id([listeId, filmId])
+  @@unique([listeId, positionFilmListe])
 }
 
 model Signalement {
@@ -90,8 +91,8 @@ model Signalement {
   membreId Int
   avisId   Int
 
-  membre Membre @relation(fields: [membreId], references: [id])
-  avis   Avis   @relation(fields: [avisId], references: [idAvis])
+  membre Membre @relation(fields: [membreId], references: [id], onDelete: Cascade)
+  avis   Avis   @relation(fields: [avisId], references: [idAvis], onDelete: Cascade)
 }
 
 model Genre {
@@ -159,7 +160,7 @@ model Avis {
   membreId Int
   filmId   Int
 
-  membre Membre @relation(fields: [membreId], references: [id])
+  membre Membre @relation(fields: [membreId], references: [id], onDelete: Cascade)
   film   Film   @relation(fields: [filmId], references: [idFilm])
 
   signalements Signalement[]
@@ -195,7 +196,7 @@ model Historique {
   membreId Int
   filmId   Int
 
-  membre Membre @relation(fields: [membreId], references: [id])
+  membre Membre @relation(fields: [membreId], references: [id], onDelete: Cascade)
   film   Film   @relation(fields: [filmId], references: [idFilm])
 }
 
@@ -205,8 +206,8 @@ model Suivre {
 
   dateSuivi DateTime @default(now())
 
-  suiveur Membre @relation("Suiveur", fields: [suiveurId], references: [id])
-  suivi   Membre @relation("Suivi", fields: [suiviId], references: [id])
+  suiveur Membre @relation("Suiveur", fields: [suiveurId], references: [id], onDelete: Cascade)
+  suivi   Membre @relation("Suivi", fields: [suiviId], references: [id], onDelete: Cascade)
 
   @@id([suiveurId, suiviId])
 }
@@ -216,7 +217,7 @@ model Favori {
   filmId          Int
   dateAjoutFavori DateTime @default(now())
 
-  membre Membre @relation(fields: [membreId], references: [id])
+  membre Membre @relation(fields: [membreId], references: [id], onDelete: Cascade)
   film   Film   @relation(fields: [filmId], references: [idFilm])
 
   @@id([membreId, filmId])
@@ -227,7 +228,7 @@ model Podium {
   filmId     Int
   rangPodium Int
 
-  membre Membre @relation(fields: [membreId], references: [id])
+  membre Membre @relation(fields: [membreId], references: [id], onDelete: Cascade)
   film   Film   @relation(fields: [filmId], references: [idFilm])
 
   @@id([membreId, rangPodium])

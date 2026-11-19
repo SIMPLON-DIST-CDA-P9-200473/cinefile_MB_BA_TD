@@ -230,6 +230,7 @@ export type ContenirOrderByWithRelationInput = {
 }
 
 export type ContenirWhereUniqueInput = Prisma.AtLeast<{
+  listeId_positionFilmListe?: Prisma.ContenirListeIdPositionFilmListeCompoundUniqueInput
   listeId_filmId?: Prisma.ContenirListeIdFilmIdCompoundUniqueInput
   AND?: Prisma.ContenirWhereInput | Prisma.ContenirWhereInput[]
   OR?: Prisma.ContenirWhereInput[]
@@ -240,7 +241,7 @@ export type ContenirWhereUniqueInput = Prisma.AtLeast<{
   dateAjoutListe?: Prisma.DateTimeFilter<"Contenir"> | Date | string
   liste?: Prisma.XOR<Prisma.ListeScalarRelationFilter, Prisma.ListeWhereInput>
   film?: Prisma.XOR<Prisma.FilmScalarRelationFilter, Prisma.FilmWhereInput>
-}, "listeId_filmId">
+}, "listeId_filmId" | "listeId_positionFilmListe">
 
 export type ContenirOrderByWithAggregationInput = {
   listeId?: Prisma.SortOrder
@@ -319,6 +320,11 @@ export type ContenirListRelationFilter = {
 
 export type ContenirOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
+}
+
+export type ContenirListeIdPositionFilmListeCompoundUniqueInput = {
+  listeId: number
+  positionFilmListe: number
 }
 
 export type ContenirListeIdFilmIdCompoundUniqueInput = {
