@@ -14,112 +14,126 @@ model Role {
 }
 
 model Membre {
-  id               Int      @id @default(autoincrement())
-  pseudo           String   @unique
-  nom              String
-  prenom           String
-  email            String   @unique
-  motDePasse       String
-  avatar           String?
-  dateInscription  DateTime @default(now())
-  biographie       String?
+  id              Int      @id @default(autoincrement())
+  pseudo          String   @unique
+  nom             String
+  prenom          String
+  email           String   @unique
+  motDePasse      String
+  avatar          String?
+  dateInscription DateTime @default(now())
+  biographie      String?
 
-  roleId           Int
-  role             Role @relation(fields: [roleId], references: [id])
-  avis             Avis[]
-  listes           Liste[]
-  signalements     Signalement[]
+  roleId       Int
+  role         Role          @relation(fields: [roleId], references: [id])
+  avis         Avis[]
+  listes       Liste[]
+  signalements Signalement[]
+  historiques  Historique[]
+  abonnements  Suivre[]      @relation("Suiveur")
+  abonnes      Suivre[]      @relation("Suivi")
+  favoris      Favori[]
+  podiums      Podium[]
 }
 
 model Film {
-  idFilm            Int       @id @default(autoincrement())
-  idTmdbFilm        Int       @unique
-  titreFilm         String
-  dateSortieFilm    DateTime
-  resumeFilm        String
-  bandeAnnonceFilm  String?
-  afficheFilm       String
+  idFilm           Int      @id @default(autoincrement())
+  idTmdbFilm       Int      @unique
+  titreFilm        String
+  dateSortieFilm   DateTime
+  resumeFilm       String
+  bandeAnnonceFilm String?
+  afficheFilm      String
 
-  avis              Avis[]
-  acteurs           FilmActeur[]
-  realisateurs      FilmRealisateur[]
-  contenus          Contenir[]
+  avis           Avis[]
+  acteurs        FilmActeur[]
+  realisateurs   FilmRealisateur[]
+  contenus       Contenir[]
+  genres         Appartenir[]
+  disponibilites EtreDisponible[]
+  historiques    Historique[]
+  favoris        Favori[]
+  podiums        Podium[]
 }
 
 model Liste {
-  idListe            Int      @id @default(autoincrement())
-  nomListe           String
-  visibiliteListe    Boolean  @default(true)
-  parDefautListe     Boolean  @default(false)
-  dateCreationListe  DateTime @default(now())
+  idListe           Int      @id @default(autoincrement())
+  nomListe          String
+  visibiliteListe   Boolean  @default(true)
+  parDefautListe    Boolean  @default(false)
+  dateCreationListe DateTime @default(now())
 
-  membreId           Int
-  membre             Membre   @relation(fields: [membreId], references: [id])
+  membreId Int
+  membre   Membre @relation(fields: [membreId], references: [id])
 
-  films              Contenir[]
+  films Contenir[]
 }
 
 model Contenir {
-  listeId             Int
-  filmId              Int
-  positionFilmListe   Int
-  dateAjoutListe      DateTime @default(now())
+  listeId           Int
+  filmId            Int
+  positionFilmListe Int
+  dateAjoutListe    DateTime @default(now())
 
-  liste               Liste @relation(fields: [listeId], references: [idListe])
-  film                Film  @relation(fields: [filmId], references: [idFilm])
+  liste Liste @relation(fields: [listeId], references: [idListe])
+  film  Film  @relation(fields: [filmId], references: [idFilm])
 
   @@id([listeId, filmId])
 }
 
 model Signalement {
-  idSignalement      Int      @id @default(autoincrement())
-  motifSignalement   String
-  dateSignalement    DateTime @default(now())
-  statutSignalement  String   @default("en attente")
+  idSignalement     Int      @id @default(autoincrement())
+  motifSignalement  String
+  dateSignalement   DateTime @default(now())
+  statutSignalement String   @default("en attente")
 
-  membreId           Int
-  avisId             Int
+  membreId Int
+  avisId   Int
 
-  membre             Membre @relation(fields: [membreId], references: [id])
-  avis               Avis   @relation(fields: [avisId], references: [idAvis])
+  membre Membre @relation(fields: [membreId], references: [id])
+  avis   Avis   @relation(fields: [avisId], references: [idAvis])
 }
 
 model Genre {
-  idGenre   Int    @id @default(autoincrement())
-  nomGenre  String @unique
+  idGenre  Int    @id @default(autoincrement())
+  nomGenre String @unique
+
+  films Appartenir[]
 }
 
 model Plateforme {
-  idPlateforme      Int    @id @default(autoincrement())
-  idTmdbPlateforme  Int    @unique
-  nomPlateforme     String @unique
-  logoPlateforme    String
+  idPlateforme     Int    @id @default(autoincrement())
+  idTmdbPlateforme Int    @unique
+  nomPlateforme    String @unique
+  logoPlateforme   String
+
+  disponibilites EtreDisponible[]
 }
 
 model Acteur {
-  idActeur       Int    @id @default(autoincrement())
-  idTmdbActeur   Int    @unique
-  nomActeur      String
-  imageActeur    String?
+  idActeur     Int     @id @default(autoincrement())
+  idTmdbActeur Int     @unique
+  nomActeur    String
+  imageActeur  String?
 
-  films          FilmActeur[]
+  films FilmActeur[]
 }
 
 model Realisateur {
-  idRealisateur      Int    @id @default(autoincrement())
-  idTmdbRealisateur  Int    @unique
-  nomRealisateur     String
-  imageRealisateur   String?
+  idRealisateur     Int     @id @default(autoincrement())
+  idTmdbRealisateur Int     @unique
+  nomRealisateur    String
+  imageRealisateur  String?
 
-  films              FilmRealisateur[]
+  films FilmRealisateur[]
 }
 
 model FilmActeur {
-  filmId    Int
-  acteurId  Int
+  filmId   Int
+  acteurId Int
 
-  film       Film   @relation(fields: [filmId], references: [idFilm])
-  acteur     Acteur @relation(fields: [acteurId], references: [idActeur])
+  film   Film   @relation(fields: [filmId], references: [idFilm])
+  acteur Acteur @relation(fields: [acteurId], references: [idActeur])
 
   @@id([filmId, acteurId])
 }
@@ -128,27 +142,93 @@ model FilmRealisateur {
   filmId        Int
   realisateurId Int
 
-  film          Film         @relation(fields: [filmId], references: [idFilm])
-  realisateur   Realisateur  @relation(fields: [realisateurId], references: [idRealisateur])
+  film        Film        @relation(fields: [filmId], references: [idFilm])
+  realisateur Realisateur @relation(fields: [realisateurId], references: [idRealisateur])
 
   @@id([filmId, realisateurId])
 }
 
 model Avis {
-  idAvis                Int       @id @default(autoincrement())
-  noteAvis              Float
-  critiqueAvis          String?
-  dateCreationAvis      DateTime @default(now())
-  dateModificationAvis  DateTime?
-  masqueAvis            Boolean @default(false)
+  idAvis               Int       @id @default(autoincrement())
+  noteAvis             Float
+  critiqueAvis         String?
+  dateCreationAvis     DateTime  @default(now())
+  dateModificationAvis DateTime?
+  masqueAvis           Boolean   @default(false)
 
-  membreId              Int
-  filmId                Int
+  membreId Int
+  filmId   Int
 
-  membre                Membre @relation(fields: [membreId], references: [id])
-  film                  Film   @relation(fields: [filmId], references: [idFilm])
+  membre Membre @relation(fields: [membreId], references: [id])
+  film   Film   @relation(fields: [filmId], references: [idFilm])
 
-  signalements          Signalement[]
+  signalements Signalement[]
 
   @@unique([membreId, filmId])
+}
+
+model Appartenir {
+  filmId  Int
+  genreId Int
+
+  film  Film  @relation(fields: [filmId], references: [idFilm])
+  genre Genre @relation(fields: [genreId], references: [idGenre])
+
+  @@id([filmId, genreId])
+}
+
+model EtreDisponible {
+  filmId       Int
+  plateformeId Int
+  typeOffre    String
+
+  film       Film       @relation(fields: [filmId], references: [idFilm])
+  plateforme Plateforme @relation(fields: [plateformeId], references: [idPlateforme])
+
+  @@id([filmId, plateformeId, typeOffre])
+}
+
+model Historique {
+  idHistorique   Int      @id @default(autoincrement())
+  dateVisionnage DateTime
+
+  membreId Int
+  filmId   Int
+
+  membre Membre @relation(fields: [membreId], references: [id])
+  film   Film   @relation(fields: [filmId], references: [idFilm])
+}
+
+model Suivre {
+  suiveurId Int
+  suiviId   Int
+
+  dateSuivi DateTime @default(now())
+
+  suiveur Membre @relation("Suiveur", fields: [suiveurId], references: [id])
+  suivi   Membre @relation("Suivi", fields: [suiviId], references: [id])
+
+  @@id([suiveurId, suiviId])
+}
+
+model Favori {
+  membreId        Int
+  filmId          Int
+  dateAjoutFavori DateTime @default(now())
+
+  membre Membre @relation(fields: [membreId], references: [id])
+  film   Film   @relation(fields: [filmId], references: [idFilm])
+
+  @@id([membreId, filmId])
+}
+
+model Podium {
+  membreId   Int
+  filmId     Int
+  rangPodium Int
+
+  membre Membre @relation(fields: [membreId], references: [id])
+  film   Film   @relation(fields: [filmId], references: [idFilm])
+
+  @@id([membreId, rangPodium])
 }
