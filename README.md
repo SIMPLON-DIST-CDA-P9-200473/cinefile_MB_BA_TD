@@ -312,49 +312,88 @@ La sécurité fait partie intégrante du développement :
 
 ---
 
-# ⚙️ Installation
+# ⚙️ Démarrer le projet
+
+L'application, la base PostgreSQL et les migrations tournent dans Docker : pas besoin d'installer PostgreSQL sur sa machine.
 
 ## Prérequis
 
-- Node.js LTS
-- npm
-- PostgreSQL
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installé **et lancé**
 - Git
-- Clé API TMDB
+- Node.js LTS et npm (seulement pour coder en local, voir plus bas)
 
-## Installation
+## Premier lancement
+
+Depuis la racine du dépôt :
 
 ```bash
-npm install
+git clone https://github.com/SIMPLON-DIST-CDA-P9-200473/cinefile_MB_BA_TD.git
+cd cinefile_MB_BA_TD
+cp .env.example .env
+docker compose up --build
 ```
+
+Docker démarre trois services, dans cet ordre :
+
+| Service | Rôle |
+|---------|------|
+| `db` | PostgreSQL 18, accessible aussi depuis la machine sur `localhost:5432` |
+| `migrate` | Applique les migrations Prisma, puis s'arrête |
+| `app` | L'application Next.js |
+
+Application disponible sur [http://localhost:3000](http://localhost:3000).
 
 ## Variables d'environnement
 
-Créer un fichier `.env` :
+Chaque membre crée son propre `.env` à partir de `.env.example`. Le `.env` est ignoré par git : **ne jamais le commiter**.
 
-```env
-DATABASE_URL=postgresql://user:password@localhost:5432/cinefile
+| Variable | Rôle |
+|----------|------|
+| `DATABASE_URL` | Connexion PostgreSQL (dans Docker, l'hôte est `db`) |
+| `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB` | Identifiants de la base créée par Docker |
+| `JWT_SECRET` | Clé de signature des JWT. Générer une valeur avec `openssl rand -base64 32` |
+| `TMDB_TOKEN` | Jeton d'accès TMDB (Bearer), uniquement côté serveur |
 
-TMDB_API_KEY=your_tmdb_api_key
+Les vrais secrets (jeton TMDB…) se partagent entre nous hors de git.
 
-JWT_SECRET=your_jwt_secret
-```
-
-⚠️ Ne jamais publier le fichier `.env`.
-
-Un fichier `.env.example` doit être fourni dans le dépôt.
-
-## Lancement du projet
+## Commandes utiles
 
 ```bash
+docker compose up --build   # tout lancer (à refaire après un pull)
+docker compose up -d db     # lancer seulement la base
+docker compose down         # tout arrêter (les données sont conservées)
+docker compose down -v      # tout arrêter ET effacer la base
+docker compose logs -f app  # suivre les logs de l'application
+```
+
+Après un `git pull` qui modifie le code ou ajoute une migration, relancer `docker compose up --build` : les migrations s'appliquent automatiquement.
+
+## Coder en local (rechargement à chaud)
+
+L'image Docker sert à faire tourner l'application comme en production : elle ne se recharge pas quand on modifie le code. Pour développer, on garde seulement la base dans Docker :
+
+```bash
+docker compose up -d db
+cd cinefile
+cp ../.env.example .env     # puis remplacer @db: par @localhost: dans DATABASE_URL
+npm install
+npx prisma migrate dev      # applique les migrations sur la base locale
 npm run dev
 ```
 
-Application disponible sur :
+Next.js et Prisma lisent le `.env` situé dans `cinefile/`, d'où ce deuxième fichier.
 
-```text
-http://localhost:3000
-```
+## Modifier la base de données
+
+1. Modifier `cinefile/prisma/schema.prisma`
+2. `npx prisma migrate dev --name description-du-changement` (depuis `cinefile/`)
+3. Commiter le schéma **et** le dossier de migration créé dans `prisma/migrations/`
+
+Ne jamais modifier une migration déjà poussée, ni les fichiers de `cinefile/generated/`.
+
+## Organisation du code
+
+L'arborescence de `cinefile/src/` et le rôle de chaque dossier sont décrits dans [cinefile/docs/ARCHITECTURE.md](cinefile/docs/ARCHITECTURE.md).
 
 ---
 
