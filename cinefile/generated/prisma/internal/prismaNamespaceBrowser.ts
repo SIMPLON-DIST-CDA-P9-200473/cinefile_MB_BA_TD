@@ -52,7 +52,24 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   Role: 'Role',
-  Membre: 'Membre'
+  Membre: 'Membre',
+  Film: 'Film',
+  Liste: 'Liste',
+  Contenir: 'Contenir',
+  Signalement: 'Signalement',
+  Genre: 'Genre',
+  Plateforme: 'Plateforme',
+  Acteur: 'Acteur',
+  Realisateur: 'Realisateur',
+  FilmActeur: 'FilmActeur',
+  FilmRealisateur: 'FilmRealisateur',
+  Avis: 'Avis',
+  Appartenir: 'Appartenir',
+  EtreDisponible: 'EtreDisponible',
+  Historique: 'Historique',
+  Suivre: 'Suivre',
+  Favori: 'Favori',
+  Podium: 'Podium'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -93,6 +110,175 @@ export const MembreScalarFieldEnum = {
 } as const
 
 export type MembreScalarFieldEnum = (typeof MembreScalarFieldEnum)[keyof typeof MembreScalarFieldEnum]
+
+
+export const FilmScalarFieldEnum = {
+  idFilm: 'idFilm',
+  idTmdbFilm: 'idTmdbFilm',
+  titreFilm: 'titreFilm',
+  dateSortieFilm: 'dateSortieFilm',
+  resumeFilm: 'resumeFilm',
+  bandeAnnonceFilm: 'bandeAnnonceFilm',
+  afficheFilm: 'afficheFilm'
+} as const
+
+export type FilmScalarFieldEnum = (typeof FilmScalarFieldEnum)[keyof typeof FilmScalarFieldEnum]
+
+
+export const ListeScalarFieldEnum = {
+  idListe: 'idListe',
+  nomListe: 'nomListe',
+  visibiliteListe: 'visibiliteListe',
+  parDefautListe: 'parDefautListe',
+  dateCreationListe: 'dateCreationListe',
+  membreId: 'membreId'
+} as const
+
+export type ListeScalarFieldEnum = (typeof ListeScalarFieldEnum)[keyof typeof ListeScalarFieldEnum]
+
+
+export const ContenirScalarFieldEnum = {
+  listeId: 'listeId',
+  filmId: 'filmId',
+  positionFilmListe: 'positionFilmListe',
+  dateAjoutListe: 'dateAjoutListe'
+} as const
+
+export type ContenirScalarFieldEnum = (typeof ContenirScalarFieldEnum)[keyof typeof ContenirScalarFieldEnum]
+
+
+export const SignalementScalarFieldEnum = {
+  idSignalement: 'idSignalement',
+  motifSignalement: 'motifSignalement',
+  dateSignalement: 'dateSignalement',
+  statutSignalement: 'statutSignalement',
+  membreId: 'membreId',
+  avisId: 'avisId'
+} as const
+
+export type SignalementScalarFieldEnum = (typeof SignalementScalarFieldEnum)[keyof typeof SignalementScalarFieldEnum]
+
+
+export const GenreScalarFieldEnum = {
+  idGenre: 'idGenre',
+  nomGenre: 'nomGenre'
+} as const
+
+export type GenreScalarFieldEnum = (typeof GenreScalarFieldEnum)[keyof typeof GenreScalarFieldEnum]
+
+
+export const PlateformeScalarFieldEnum = {
+  idPlateforme: 'idPlateforme',
+  idTmdbPlateforme: 'idTmdbPlateforme',
+  nomPlateforme: 'nomPlateforme',
+  logoPlateforme: 'logoPlateforme'
+} as const
+
+export type PlateformeScalarFieldEnum = (typeof PlateformeScalarFieldEnum)[keyof typeof PlateformeScalarFieldEnum]
+
+
+export const ActeurScalarFieldEnum = {
+  idActeur: 'idActeur',
+  idTmdbActeur: 'idTmdbActeur',
+  nomActeur: 'nomActeur',
+  imageActeur: 'imageActeur'
+} as const
+
+export type ActeurScalarFieldEnum = (typeof ActeurScalarFieldEnum)[keyof typeof ActeurScalarFieldEnum]
+
+
+export const RealisateurScalarFieldEnum = {
+  idRealisateur: 'idRealisateur',
+  idTmdbRealisateur: 'idTmdbRealisateur',
+  nomRealisateur: 'nomRealisateur',
+  imageRealisateur: 'imageRealisateur'
+} as const
+
+export type RealisateurScalarFieldEnum = (typeof RealisateurScalarFieldEnum)[keyof typeof RealisateurScalarFieldEnum]
+
+
+export const FilmActeurScalarFieldEnum = {
+  filmId: 'filmId',
+  acteurId: 'acteurId'
+} as const
+
+export type FilmActeurScalarFieldEnum = (typeof FilmActeurScalarFieldEnum)[keyof typeof FilmActeurScalarFieldEnum]
+
+
+export const FilmRealisateurScalarFieldEnum = {
+  filmId: 'filmId',
+  realisateurId: 'realisateurId'
+} as const
+
+export type FilmRealisateurScalarFieldEnum = (typeof FilmRealisateurScalarFieldEnum)[keyof typeof FilmRealisateurScalarFieldEnum]
+
+
+export const AvisScalarFieldEnum = {
+  idAvis: 'idAvis',
+  noteAvis: 'noteAvis',
+  critiqueAvis: 'critiqueAvis',
+  dateCreationAvis: 'dateCreationAvis',
+  dateModificationAvis: 'dateModificationAvis',
+  masqueAvis: 'masqueAvis',
+  membreId: 'membreId',
+  filmId: 'filmId'
+} as const
+
+export type AvisScalarFieldEnum = (typeof AvisScalarFieldEnum)[keyof typeof AvisScalarFieldEnum]
+
+
+export const AppartenirScalarFieldEnum = {
+  filmId: 'filmId',
+  genreId: 'genreId'
+} as const
+
+export type AppartenirScalarFieldEnum = (typeof AppartenirScalarFieldEnum)[keyof typeof AppartenirScalarFieldEnum]
+
+
+export const EtreDisponibleScalarFieldEnum = {
+  filmId: 'filmId',
+  plateformeId: 'plateformeId',
+  typeOffre: 'typeOffre'
+} as const
+
+export type EtreDisponibleScalarFieldEnum = (typeof EtreDisponibleScalarFieldEnum)[keyof typeof EtreDisponibleScalarFieldEnum]
+
+
+export const HistoriqueScalarFieldEnum = {
+  idHistorique: 'idHistorique',
+  dateVisionnage: 'dateVisionnage',
+  membreId: 'membreId',
+  filmId: 'filmId'
+} as const
+
+export type HistoriqueScalarFieldEnum = (typeof HistoriqueScalarFieldEnum)[keyof typeof HistoriqueScalarFieldEnum]
+
+
+export const SuivreScalarFieldEnum = {
+  suiveurId: 'suiveurId',
+  suiviId: 'suiviId',
+  dateSuivi: 'dateSuivi'
+} as const
+
+export type SuivreScalarFieldEnum = (typeof SuivreScalarFieldEnum)[keyof typeof SuivreScalarFieldEnum]
+
+
+export const FavoriScalarFieldEnum = {
+  membreId: 'membreId',
+  filmId: 'filmId',
+  dateAjoutFavori: 'dateAjoutFavori'
+} as const
+
+export type FavoriScalarFieldEnum = (typeof FavoriScalarFieldEnum)[keyof typeof FavoriScalarFieldEnum]
+
+
+export const PodiumScalarFieldEnum = {
+  membreId: 'membreId',
+  filmId: 'filmId',
+  rangPodium: 'rangPodium'
+} as const
+
+export type PodiumScalarFieldEnum = (typeof PodiumScalarFieldEnum)[keyof typeof PodiumScalarFieldEnum]
 
 
 export const SortOrder = {

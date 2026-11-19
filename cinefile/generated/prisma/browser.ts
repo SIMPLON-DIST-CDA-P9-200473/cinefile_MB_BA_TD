@@ -27,3 +27,88 @@ export type Role = Prisma.RoleModel
  * 
  */
 export type Membre = Prisma.MembreModel
+/**
+ * Model Film
+ * 
+ */
+export type Film = Prisma.FilmModel
+/**
+ * Model Liste
+ * 
+ */
+export type Liste = Prisma.ListeModel
+/**
+ * Model Contenir
+ * 
+ */
+export type Contenir = Prisma.ContenirModel
+/**
+ * Model Signalement
+ * 
+ */
+export type Signalement = Prisma.SignalementModel
+/**
+ * Model Genre
+ * 
+ */
+export type Genre = Prisma.GenreModel
+/**
+ * Model Plateforme
+ * 
+ */
+export type Plateforme = Prisma.PlateformeModel
+/**
+ * Model Acteur
+ * 
+ */
+export type Acteur = Prisma.ActeurModel
+/**
+ * Model Realisateur
+ * 
+ */
+export type Realisateur = Prisma.RealisateurModel
+/**
+ * Model FilmActeur
+ * 
+ */
+export type FilmActeur = Prisma.FilmActeurModel
+/**
+ * Model FilmRealisateur
+ * 
+ */
+export type FilmRealisateur = Prisma.FilmRealisateurModel
+/**
+ * Model Avis
+ * 
+ */
+export type Avis = Prisma.AvisModel
+/**
+ * Model Appartenir
+ * 
+ */
+export type Appartenir = Prisma.AppartenirModel
+/**
+ * Model EtreDisponible
+ * 
+ */
+export type EtreDisponible = Prisma.EtreDisponibleModel
+/**
+ * Model Historique
+ * 
+ */
+export type Historique = Prisma.HistoriqueModel
+/**
+ * Model Suivre
+ * 
+ */
+export type Suivre = Prisma.SuivreModel
+/**
+ * Model Favori
+ * 
+ */
+export type Favori = Prisma.FavoriModel
+/**
+ * Model Podium
+ * 
+ */
+export type Podium = Prisma.PodiumModel

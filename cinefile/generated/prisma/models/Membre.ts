@@ -261,6 +261,14 @@ export type MembreWhereInput = {
   biographie?: Prisma.StringNullableFilter<"Membre"> | string | null
   roleId?: Prisma.IntFilter<"Membre"> | number
   role?: Prisma.XOR<Prisma.RoleScalarRelationFilter, Prisma.RoleWhereInput>
+  avis?: Prisma.AvisListRelationFilter
+  listes?: Prisma.ListeListRelationFilter
+  signalements?: Prisma.SignalementListRelationFilter
+  historiques?: Prisma.HistoriqueListRelationFilter
+  abonnements?: Prisma.SuivreListRelationFilter
+  abonnes?: Prisma.SuivreListRelationFilter
+  favoris?: Prisma.FavoriListRelationFilter
+  podiums?: Prisma.PodiumListRelationFilter
 }
 
 export type MembreOrderByWithRelationInput = {
@@ -275,6 +283,14 @@ export type MembreOrderByWithRelationInput = {
   biographie?: Prisma.SortOrderInput | Prisma.SortOrder
   roleId?: Prisma.SortOrder
   role?: Prisma.RoleOrderByWithRelationInput
+  avis?: Prisma.AvisOrderByRelationAggregateInput
+  listes?: Prisma.ListeOrderByRelationAggregateInput
+  signalements?: Prisma.SignalementOrderByRelationAggregateInput
+  historiques?: Prisma.HistoriqueOrderByRelationAggregateInput
+  abonnements?: Prisma.SuivreOrderByRelationAggregateInput
+  abonnes?: Prisma.SuivreOrderByRelationAggregateInput
+  favoris?: Prisma.FavoriOrderByRelationAggregateInput
+  podiums?: Prisma.PodiumOrderByRelationAggregateInput
 }
 
 export type MembreWhereUniqueInput = Prisma.AtLeast<{
@@ -292,6 +308,14 @@ export type MembreWhereUniqueInput = Prisma.AtLeast<{
   biographie?: Prisma.StringNullableFilter<"Membre"> | string | null
   roleId?: Prisma.IntFilter<"Membre"> | number
   role?: Prisma.XOR<Prisma.RoleScalarRelationFilter, Prisma.RoleWhereInput>
+  avis?: Prisma.AvisListRelationFilter
+  listes?: Prisma.ListeListRelationFilter
+  signalements?: Prisma.SignalementListRelationFilter
+  historiques?: Prisma.HistoriqueListRelationFilter
+  abonnements?: Prisma.SuivreListRelationFilter
+  abonnes?: Prisma.SuivreListRelationFilter
+  favoris?: Prisma.FavoriListRelationFilter
+  podiums?: Prisma.PodiumListRelationFilter
 }, "id" | "pseudo" | "email">
 
 export type MembreOrderByWithAggregationInput = {
@@ -338,6 +362,14 @@ export type MembreCreateInput = {
   dateInscription?: Date | string
   biographie?: string | null
   role: Prisma.RoleCreateNestedOneWithoutMembresInput
+  avis?: Prisma.AvisCreateNestedManyWithoutMembreInput
+  listes?: Prisma.ListeCreateNestedManyWithoutMembreInput
+  signalements?: Prisma.SignalementCreateNestedManyWithoutMembreInput
+  historiques?: Prisma.HistoriqueCreateNestedManyWithoutMembreInput
+  abonnements?: Prisma.SuivreCreateNestedManyWithoutSuiveurInput
+  abonnes?: Prisma.SuivreCreateNestedManyWithoutSuiviInput
+  favoris?: Prisma.FavoriCreateNestedManyWithoutMembreInput
+  podiums?: Prisma.PodiumCreateNestedManyWithoutMembreInput
 }
 
 export type MembreUncheckedCreateInput = {
@@ -351,6 +383,14 @@ export type MembreUncheckedCreateInput = {
   dateInscription?: Date | string
   biographie?: string | null
   roleId: number
+  avis?: Prisma.AvisUncheckedCreateNestedManyWithoutMembreInput
+  listes?: Prisma.ListeUncheckedCreateNestedManyWithoutMembreInput
+  signalements?: Prisma.SignalementUncheckedCreateNestedManyWithoutMembreInput
+  historiques?: Prisma.HistoriqueUncheckedCreateNestedManyWithoutMembreInput
+  abonnements?: Prisma.SuivreUncheckedCreateNestedManyWithoutSuiveurInput
+  abonnes?: Prisma.SuivreUncheckedCreateNestedManyWithoutSuiviInput
+  favoris?: Prisma.FavoriUncheckedCreateNestedManyWithoutMembreInput
+  podiums?: Prisma.PodiumUncheckedCreateNestedManyWithoutMembreInput
 }
 
 export type MembreUpdateInput = {
@@ -363,6 +403,14 @@ export type MembreUpdateInput = {
   dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.RoleUpdateOneRequiredWithoutMembresNestedInput
+  avis?: Prisma.AvisUpdateManyWithoutMembreNestedInput
+  listes?: Prisma.ListeUpdateManyWithoutMembreNestedInput
+  signalements?: Prisma.SignalementUpdateManyWithoutMembreNestedInput
+  historiques?: Prisma.HistoriqueUpdateManyWithoutMembreNestedInput
+  abonnements?: Prisma.SuivreUpdateManyWithoutSuiveurNestedInput
+  abonnes?: Prisma.SuivreUpdateManyWithoutSuiviNestedInput
+  favoris?: Prisma.FavoriUpdateManyWithoutMembreNestedInput
+  podiums?: Prisma.PodiumUpdateManyWithoutMembreNestedInput
 }
 
 export type MembreUncheckedUpdateInput = {
@@ -376,6 +424,14 @@ export type MembreUncheckedUpdateInput = {
   dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   roleId?: Prisma.IntFieldUpdateOperationsInput | number
+  avis?: Prisma.AvisUncheckedUpdateManyWithoutMembreNestedInput
+  listes?: Prisma.ListeUncheckedUpdateManyWithoutMembreNestedInput
+  signalements?: Prisma.SignalementUncheckedUpdateManyWithoutMembreNestedInput
+  historiques?: Prisma.HistoriqueUncheckedUpdateManyWithoutMembreNestedInput
+  abonnements?: Prisma.SuivreUncheckedUpdateManyWithoutSuiveurNestedInput
+  abonnes?: Prisma.SuivreUncheckedUpdateManyWithoutSuiviNestedInput
+  favoris?: Prisma.FavoriUncheckedUpdateManyWithoutMembreNestedInput
+  podiums?: Prisma.PodiumUncheckedUpdateManyWithoutMembreNestedInput
 }
 
 export type MembreCreateManyInput = {
@@ -474,6 +530,11 @@ export type MembreSumOrderByAggregateInput = {
   roleId?: Prisma.SortOrder
 }
 
+export type MembreScalarRelationFilter = {
+  is?: Prisma.MembreWhereInput
+  isNot?: Prisma.MembreWhereInput
+}
+
 export type MembreCreateNestedManyWithoutRoleInput = {
   create?: Prisma.XOR<Prisma.MembreCreateWithoutRoleInput, Prisma.MembreUncheckedCreateWithoutRoleInput> | Prisma.MembreCreateWithoutRoleInput[] | Prisma.MembreUncheckedCreateWithoutRoleInput[]
   connectOrCreate?: Prisma.MembreCreateOrConnectWithoutRoleInput | Prisma.MembreCreateOrConnectWithoutRoleInput[]
@@ -524,6 +585,118 @@ export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }
 
+export type MembreCreateNestedOneWithoutListesInput = {
+  create?: Prisma.XOR<Prisma.MembreCreateWithoutListesInput, Prisma.MembreUncheckedCreateWithoutListesInput>
+  connectOrCreate?: Prisma.MembreCreateOrConnectWithoutListesInput
+  connect?: Prisma.MembreWhereUniqueInput
+}
+
+export type MembreUpdateOneRequiredWithoutListesNestedInput = {
+  create?: Prisma.XOR<Prisma.MembreCreateWithoutListesInput, Prisma.MembreUncheckedCreateWithoutListesInput>
+  connectOrCreate?: Prisma.MembreCreateOrConnectWithoutListesInput
+  upsert?: Prisma.MembreUpsertWithoutListesInput
+  connect?: Prisma.MembreWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MembreUpdateToOneWithWhereWithoutListesInput, Prisma.MembreUpdateWithoutListesInput>, Prisma.MembreUncheckedUpdateWithoutListesInput>
+}
+
+export type MembreCreateNestedOneWithoutSignalementsInput = {
+  create?: Prisma.XOR<Prisma.MembreCreateWithoutSignalementsInput, Prisma.MembreUncheckedCreateWithoutSignalementsInput>
+  connectOrCreate?: Prisma.MembreCreateOrConnectWithoutSignalementsInput
+  connect?: Prisma.MembreWhereUniqueInput
+}
+
+export type MembreUpdateOneRequiredWithoutSignalementsNestedInput = {
+  create?: Prisma.XOR<Prisma.MembreCreateWithoutSignalementsInput, Prisma.MembreUncheckedCreateWithoutSignalementsInput>
+  connectOrCreate?: Prisma.MembreCreateOrConnectWithoutSignalementsInput
+  upsert?: Prisma.MembreUpsertWithoutSignalementsInput
+  connect?: Prisma.MembreWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MembreUpdateToOneWithWhereWithoutSignalementsInput, Prisma.MembreUpdateWithoutSignalementsInput>, Prisma.MembreUncheckedUpdateWithoutSignalementsInput>
+}
+
+export type MembreCreateNestedOneWithoutAvisInput = {
+  create?: Prisma.XOR<Prisma.MembreCreateWithoutAvisInput, Prisma.MembreUncheckedCreateWithoutAvisInput>
+  connectOrCreate?: Prisma.MembreCreateOrConnectWithoutAvisInput
+  connect?: Prisma.MembreWhereUniqueInput
+}
+
+export type MembreUpdateOneRequiredWithoutAvisNestedInput = {
+  create?: Prisma.XOR<Prisma.MembreCreateWithoutAvisInput, Prisma.MembreUncheckedCreateWithoutAvisInput>
+  connectOrCreate?: Prisma.MembreCreateOrConnectWithoutAvisInput
+  upsert?: Prisma.MembreUpsertWithoutAvisInput
+  connect?: Prisma.MembreWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MembreUpdateToOneWithWhereWithoutAvisInput, Prisma.MembreUpdateWithoutAvisInput>, Prisma.MembreUncheckedUpdateWithoutAvisInput>
+}
+
+export type MembreCreateNestedOneWithoutHistoriquesInput = {
+  create?: Prisma.XOR<Prisma.MembreCreateWithoutHistoriquesInput, Prisma.MembreUncheckedCreateWithoutHistoriquesInput>
+  connectOrCreate?: Prisma.MembreCreateOrConnectWithoutHistoriquesInput
+  connect?: Prisma.MembreWhereUniqueInput
+}
+
+export type MembreUpdateOneRequiredWithoutHistoriquesNestedInput = {
+  create?: Prisma.XOR<Prisma.MembreCreateWithoutHistoriquesInput, Prisma.MembreUncheckedCreateWithoutHistoriquesInput>
+  connectOrCreate?: Prisma.MembreCreateOrConnectWithoutHistoriquesInput
+  upsert?: Prisma.MembreUpsertWithoutHistoriquesInput
+  connect?: Prisma.MembreWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MembreUpdateToOneWithWhereWithoutHistoriquesInput, Prisma.MembreUpdateWithoutHistoriquesInput>, Prisma.MembreUncheckedUpdateWithoutHistoriquesInput>
+}
+
+export type MembreCreateNestedOneWithoutAbonnementsInput = {
+  create?: Prisma.XOR<Prisma.MembreCreateWithoutAbonnementsInput, Prisma.MembreUncheckedCreateWithoutAbonnementsInput>
+  connectOrCreate?: Prisma.MembreCreateOrConnectWithoutAbonnementsInput
+  connect?: Prisma.MembreWhereUniqueInput
+}
+
+export type MembreCreateNestedOneWithoutAbonnesInput = {
+  create?: Prisma.XOR<Prisma.MembreCreateWithoutAbonnesInput, Prisma.MembreUncheckedCreateWithoutAbonnesInput>
+  connectOrCreate?: Prisma.MembreCreateOrConnectWithoutAbonnesInput
+  connect?: Prisma.MembreWhereUniqueInput
+}
+
+export type MembreUpdateOneRequiredWithoutAbonnementsNestedInput = {
+  create?: Prisma.XOR<Prisma.MembreCreateWithoutAbonnementsInput, Prisma.MembreUncheckedCreateWithoutAbonnementsInput>
+  connectOrCreate?: Prisma.MembreCreateOrConnectWithoutAbonnementsInput
+  upsert?: Prisma.MembreUpsertWithoutAbonnementsInput
+  connect?: Prisma.MembreWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MembreUpdateToOneWithWhereWithoutAbonnementsInput, Prisma.MembreUpdateWithoutAbonnementsInput>, Prisma.MembreUncheckedUpdateWithoutAbonnementsInput>
+}
+
+export type MembreUpdateOneRequiredWithoutAbonnesNestedInput = {
+  create?: Prisma.XOR<Prisma.MembreCreateWithoutAbonnesInput, Prisma.MembreUncheckedCreateWithoutAbonnesInput>
+  connectOrCreate?: Prisma.MembreCreateOrConnectWithoutAbonnesInput
+  upsert?: Prisma.MembreUpsertWithoutAbonnesInput
+  connect?: Prisma.MembreWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MembreUpdateToOneWithWhereWithoutAbonnesInput, Prisma.MembreUpdateWithoutAbonnesInput>, Prisma.MembreUncheckedUpdateWithoutAbonnesInput>
+}
+
+export type MembreCreateNestedOneWithoutFavorisInput = {
+  create?: Prisma.XOR<Prisma.MembreCreateWithoutFavorisInput, Prisma.MembreUncheckedCreateWithoutFavorisInput>
+  connectOrCreate?: Prisma.MembreCreateOrConnectWithoutFavorisInput
+  connect?: Prisma.MembreWhereUniqueInput
+}
+
+export type MembreUpdateOneRequiredWithoutFavorisNestedInput = {
+  create?: Prisma.XOR<Prisma.MembreCreateWithoutFavorisInput, Prisma.MembreUncheckedCreateWithoutFavorisInput>
+  connectOrCreate?: Prisma.MembreCreateOrConnectWithoutFavorisInput
+  upsert?: Prisma.MembreUpsertWithoutFavorisInput
+  connect?: Prisma.MembreWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MembreUpdateToOneWithWhereWithoutFavorisInput, Prisma.MembreUpdateWithoutFavorisInput>, Prisma.MembreUncheckedUpdateWithoutFavorisInput>
+}
+
+export type MembreCreateNestedOneWithoutPodiumsInput = {
+  create?: Prisma.XOR<Prisma.MembreCreateWithoutPodiumsInput, Prisma.MembreUncheckedCreateWithoutPodiumsInput>
+  connectOrCreate?: Prisma.MembreCreateOrConnectWithoutPodiumsInput
+  connect?: Prisma.MembreWhereUniqueInput
+}
+
+export type MembreUpdateOneRequiredWithoutPodiumsNestedInput = {
+  create?: Prisma.XOR<Prisma.MembreCreateWithoutPodiumsInput, Prisma.MembreUncheckedCreateWithoutPodiumsInput>
+  connectOrCreate?: Prisma.MembreCreateOrConnectWithoutPodiumsInput
+  upsert?: Prisma.MembreUpsertWithoutPodiumsInput
+  connect?: Prisma.MembreWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MembreUpdateToOneWithWhereWithoutPodiumsInput, Prisma.MembreUpdateWithoutPodiumsInput>, Prisma.MembreUncheckedUpdateWithoutPodiumsInput>
+}
+
 export type MembreCreateWithoutRoleInput = {
   pseudo: string
   nom: string
@@ -533,6 +706,14 @@ export type MembreCreateWithoutRoleInput = {
   avatar?: string | null
   dateInscription?: Date | string
   biographie?: string | null
+  avis?: Prisma.AvisCreateNestedManyWithoutMembreInput
+  listes?: Prisma.ListeCreateNestedManyWithoutMembreInput
+  signalements?: Prisma.SignalementCreateNestedManyWithoutMembreInput
+  historiques?: Prisma.HistoriqueCreateNestedManyWithoutMembreInput
+  abonnements?: Prisma.SuivreCreateNestedManyWithoutSuiveurInput
+  abonnes?: Prisma.SuivreCreateNestedManyWithoutSuiviInput
+  favoris?: Prisma.FavoriCreateNestedManyWithoutMembreInput
+  podiums?: Prisma.PodiumCreateNestedManyWithoutMembreInput
 }
 
 export type MembreUncheckedCreateWithoutRoleInput = {
@@ -545,6 +726,14 @@ export type MembreUncheckedCreateWithoutRoleInput = {
   avatar?: string | null
   dateInscription?: Date | string
   biographie?: string | null
+  avis?: Prisma.AvisUncheckedCreateNestedManyWithoutMembreInput
+  listes?: Prisma.ListeUncheckedCreateNestedManyWithoutMembreInput
+  signalements?: Prisma.SignalementUncheckedCreateNestedManyWithoutMembreInput
+  historiques?: Prisma.HistoriqueUncheckedCreateNestedManyWithoutMembreInput
+  abonnements?: Prisma.SuivreUncheckedCreateNestedManyWithoutSuiveurInput
+  abonnes?: Prisma.SuivreUncheckedCreateNestedManyWithoutSuiviInput
+  favoris?: Prisma.FavoriUncheckedCreateNestedManyWithoutMembreInput
+  podiums?: Prisma.PodiumUncheckedCreateNestedManyWithoutMembreInput
 }
 
 export type MembreCreateOrConnectWithoutRoleInput = {
@@ -589,6 +778,758 @@ export type MembreScalarWhereInput = {
   roleId?: Prisma.IntFilter<"Membre"> | number
 }
 
+export type MembreCreateWithoutListesInput = {
+  pseudo: string
+  nom: string
+  prenom: string
+  email: string
+  motDePasse: string
+  avatar?: string | null
+  dateInscription?: Date | string
+  biographie?: string | null
+  role: Prisma.RoleCreateNestedOneWithoutMembresInput
+  avis?: Prisma.AvisCreateNestedManyWithoutMembreInput
+  signalements?: Prisma.SignalementCreateNestedManyWithoutMembreInput
+  historiques?: Prisma.HistoriqueCreateNestedManyWithoutMembreInput
+  abonnements?: Prisma.SuivreCreateNestedManyWithoutSuiveurInput
+  abonnes?: Prisma.SuivreCreateNestedManyWithoutSuiviInput
+  favoris?: Prisma.FavoriCreateNestedManyWithoutMembreInput
+  podiums?: Prisma.PodiumCreateNestedManyWithoutMembreInput
+}
+
+export type MembreUncheckedCreateWithoutListesInput = {
+  id?: number
+  pseudo: string
+  nom: string
+  prenom: string
+  email: string
+  motDePasse: string
+  avatar?: string | null
+  dateInscription?: Date | string
+  biographie?: string | null
+  roleId: number
+  avis?: Prisma.AvisUncheckedCreateNestedManyWithoutMembreInput
+  signalements?: Prisma.SignalementUncheckedCreateNestedManyWithoutMembreInput
+  historiques?: Prisma.HistoriqueUncheckedCreateNestedManyWithoutMembreInput
+  abonnements?: Prisma.SuivreUncheckedCreateNestedManyWithoutSuiveurInput
+  abonnes?: Prisma.SuivreUncheckedCreateNestedManyWithoutSuiviInput
+  favoris?: Prisma.FavoriUncheckedCreateNestedManyWithoutMembreInput
+  podiums?: Prisma.PodiumUncheckedCreateNestedManyWithoutMembreInput
+}
+
+export type MembreCreateOrConnectWithoutListesInput = {
+  where: Prisma.MembreWhereUniqueInput
+  create: Prisma.XOR<Prisma.MembreCreateWithoutListesInput, Prisma.MembreUncheckedCreateWithoutListesInput>
+}
+
+export type MembreUpsertWithoutListesInput = {
+  update: Prisma.XOR<Prisma.MembreUpdateWithoutListesInput, Prisma.MembreUncheckedUpdateWithoutListesInput>
+  create: Prisma.XOR<Prisma.MembreCreateWithoutListesInput, Prisma.MembreUncheckedCreateWithoutListesInput>
+  where?: Prisma.MembreWhereInput
+}
+
+export type MembreUpdateToOneWithWhereWithoutListesInput = {
+  where?: Prisma.MembreWhereInput
+  data: Prisma.XOR<Prisma.MembreUpdateWithoutListesInput, Prisma.MembreUncheckedUpdateWithoutListesInput>
+}
+
+export type MembreUpdateWithoutListesInput = {
+  pseudo?: Prisma.StringFieldUpdateOperationsInput | string
+  nom?: Prisma.StringFieldUpdateOperationsInput | string
+  prenom?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  motDePasse?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.RoleUpdateOneRequiredWithoutMembresNestedInput
+  avis?: Prisma.AvisUpdateManyWithoutMembreNestedInput
+  signalements?: Prisma.SignalementUpdateManyWithoutMembreNestedInput
+  historiques?: Prisma.HistoriqueUpdateManyWithoutMembreNestedInput
+  abonnements?: Prisma.SuivreUpdateManyWithoutSuiveurNestedInput
+  abonnes?: Prisma.SuivreUpdateManyWithoutSuiviNestedInput
+  favoris?: Prisma.FavoriUpdateManyWithoutMembreNestedInput
+  podiums?: Prisma.PodiumUpdateManyWithoutMembreNestedInput
+}
+
+export type MembreUncheckedUpdateWithoutListesInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  pseudo?: Prisma.StringFieldUpdateOperationsInput | string
+  nom?: Prisma.StringFieldUpdateOperationsInput | string
+  prenom?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  motDePasse?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  roleId?: Prisma.IntFieldUpdateOperationsInput | number
+  avis?: Prisma.AvisUncheckedUpdateManyWithoutMembreNestedInput
+  signalements?: Prisma.SignalementUncheckedUpdateManyWithoutMembreNestedInput
+  historiques?: Prisma.HistoriqueUncheckedUpdateManyWithoutMembreNestedInput
+  abonnements?: Prisma.SuivreUncheckedUpdateManyWithoutSuiveurNestedInput
+  abonnes?: Prisma.SuivreUncheckedUpdateManyWithoutSuiviNestedInput
+  favoris?: Prisma.FavoriUncheckedUpdateManyWithoutMembreNestedInput
+  podiums?: Prisma.PodiumUncheckedUpdateManyWithoutMembreNestedInput
+}
+
+export type MembreCreateWithoutSignalementsInput = {
+  pseudo: string
+  nom: string
+  prenom: string
+  email: string
+  motDePasse: string
+  avatar?: string | null
+  dateInscription?: Date | string
+  biographie?: string | null
+  role: Prisma.RoleCreateNestedOneWithoutMembresInput
+  avis?: Prisma.AvisCreateNestedManyWithoutMembreInput
+  listes?: Prisma.ListeCreateNestedManyWithoutMembreInput
+  historiques?: Prisma.HistoriqueCreateNestedManyWithoutMembreInput
+  abonnements?: Prisma.SuivreCreateNestedManyWithoutSuiveurInput
+  abonnes?: Prisma.SuivreCreateNestedManyWithoutSuiviInput
+  favoris?: Prisma.FavoriCreateNestedManyWithoutMembreInput
+  podiums?: Prisma.PodiumCreateNestedManyWithoutMembreInput
+}
+
+export type MembreUncheckedCreateWithoutSignalementsInput = {
+  id?: number
+  pseudo: string
+  nom: string
+  prenom: string
+  email: string
+  motDePasse: string
+  avatar?: string | null
+  dateInscription?: Date | string
+  biographie?: string | null
+  roleId: number
+  avis?: Prisma.AvisUncheckedCreateNestedManyWithoutMembreInput
+  listes?: Prisma.ListeUncheckedCreateNestedManyWithoutMembreInput
+  historiques?: Prisma.HistoriqueUncheckedCreateNestedManyWithoutMembreInput
+  abonnements?: Prisma.SuivreUncheckedCreateNestedManyWithoutSuiveurInput
+  abonnes?: Prisma.SuivreUncheckedCreateNestedManyWithoutSuiviInput
+  favoris?: Prisma.FavoriUncheckedCreateNestedManyWithoutMembreInput
+  podiums?: Prisma.PodiumUncheckedCreateNestedManyWithoutMembreInput
+}
+
+export type MembreCreateOrConnectWithoutSignalementsInput = {
+  where: Prisma.MembreWhereUniqueInput
+  create: Prisma.XOR<Prisma.MembreCreateWithoutSignalementsInput, Prisma.MembreUncheckedCreateWithoutSignalementsInput>
+}
+
+export type MembreUpsertWithoutSignalementsInput = {
+  update: Prisma.XOR<Prisma.MembreUpdateWithoutSignalementsInput, Prisma.MembreUncheckedUpdateWithoutSignalementsInput>
+  create: Prisma.XOR<Prisma.MembreCreateWithoutSignalementsInput, Prisma.MembreUncheckedCreateWithoutSignalementsInput>
+  where?: Prisma.MembreWhereInput
+}
+
+export type MembreUpdateToOneWithWhereWithoutSignalementsInput = {
+  where?: Prisma.MembreWhereInput
+  data: Prisma.XOR<Prisma.MembreUpdateWithoutSignalementsInput, Prisma.MembreUncheckedUpdateWithoutSignalementsInput>
+}
+
+export type MembreUpdateWithoutSignalementsInput = {
+  pseudo?: Prisma.StringFieldUpdateOperationsInput | string
+  nom?: Prisma.StringFieldUpdateOperationsInput | string
+  prenom?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  motDePasse?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.RoleUpdateOneRequiredWithoutMembresNestedInput
+  avis?: Prisma.AvisUpdateManyWithoutMembreNestedInput
+  listes?: Prisma.ListeUpdateManyWithoutMembreNestedInput
+  historiques?: Prisma.HistoriqueUpdateManyWithoutMembreNestedInput
+  abonnements?: Prisma.SuivreUpdateManyWithoutSuiveurNestedInput
+  abonnes?: Prisma.SuivreUpdateManyWithoutSuiviNestedInput
+  favoris?: Prisma.FavoriUpdateManyWithoutMembreNestedInput
+  podiums?: Prisma.PodiumUpdateManyWithoutMembreNestedInput
+}
+
+export type MembreUncheckedUpdateWithoutSignalementsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  pseudo?: Prisma.StringFieldUpdateOperationsInput | string
+  nom?: Prisma.StringFieldUpdateOperationsInput | string
+  prenom?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  motDePasse?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  roleId?: Prisma.IntFieldUpdateOperationsInput | number
+  avis?: Prisma.AvisUncheckedUpdateManyWithoutMembreNestedInput
+  listes?: Prisma.ListeUncheckedUpdateManyWithoutMembreNestedInput
+  historiques?: Prisma.HistoriqueUncheckedUpdateManyWithoutMembreNestedInput
+  abonnements?: Prisma.SuivreUncheckedUpdateManyWithoutSuiveurNestedInput
+  abonnes?: Prisma.SuivreUncheckedUpdateManyWithoutSuiviNestedInput
+  favoris?: Prisma.FavoriUncheckedUpdateManyWithoutMembreNestedInput
+  podiums?: Prisma.PodiumUncheckedUpdateManyWithoutMembreNestedInput
+}
+
+export type MembreCreateWithoutAvisInput = {
+  pseudo: string
+  nom: string
+  prenom: string
+  email: string
+  motDePasse: string
+  avatar?: string | null
+  dateInscription?: Date | string
+  biographie?: string | null
+  role: Prisma.RoleCreateNestedOneWithoutMembresInput
+  listes?: Prisma.ListeCreateNestedManyWithoutMembreInput
+  signalements?: Prisma.SignalementCreateNestedManyWithoutMembreInput
+  historiques?: Prisma.HistoriqueCreateNestedManyWithoutMembreInput
+  abonnements?: Prisma.SuivreCreateNestedManyWithoutSuiveurInput
+  abonnes?: Prisma.SuivreCreateNestedManyWithoutSuiviInput
+  favoris?: Prisma.FavoriCreateNestedManyWithoutMembreInput
+  podiums?: Prisma.PodiumCreateNestedManyWithoutMembreInput
+}
+
+export type MembreUncheckedCreateWithoutAvisInput = {
+  id?: number
+  pseudo: string
+  nom: string
+  prenom: string
+  email: string
+  motDePasse: string
+  avatar?: string | null
+  dateInscription?: Date | string
+  biographie?: string | null
+  roleId: number
+  listes?: Prisma.ListeUncheckedCreateNestedManyWithoutMembreInput
+  signalements?: Prisma.SignalementUncheckedCreateNestedManyWithoutMembreInput
+  historiques?: Prisma.HistoriqueUncheckedCreateNestedManyWithoutMembreInput
+  abonnements?: Prisma.SuivreUncheckedCreateNestedManyWithoutSuiveurInput
+  abonnes?: Prisma.SuivreUncheckedCreateNestedManyWithoutSuiviInput
+  favoris?: Prisma.FavoriUncheckedCreateNestedManyWithoutMembreInput
+  podiums?: Prisma.PodiumUncheckedCreateNestedManyWithoutMembreInput
+}
+
+export type MembreCreateOrConnectWithoutAvisInput = {
+  where: Prisma.MembreWhereUniqueInput
+  create: Prisma.XOR<Prisma.MembreCreateWithoutAvisInput, Prisma.MembreUncheckedCreateWithoutAvisInput>
+}
+
+export type MembreUpsertWithoutAvisInput = {
+  update: Prisma.XOR<Prisma.MembreUpdateWithoutAvisInput, Prisma.MembreUncheckedUpdateWithoutAvisInput>
+  create: Prisma.XOR<Prisma.MembreCreateWithoutAvisInput, Prisma.MembreUncheckedCreateWithoutAvisInput>
+  where?: Prisma.MembreWhereInput
+}
+
+export type MembreUpdateToOneWithWhereWithoutAvisInput = {
+  where?: Prisma.MembreWhereInput
+  data: Prisma.XOR<Prisma.MembreUpdateWithoutAvisInput, Prisma.MembreUncheckedUpdateWithoutAvisInput>
+}
+
+export type MembreUpdateWithoutAvisInput = {
+  pseudo?: Prisma.StringFieldUpdateOperationsInput | string
+  nom?: Prisma.StringFieldUpdateOperationsInput | string
+  prenom?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  motDePasse?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.RoleUpdateOneRequiredWithoutMembresNestedInput
+  listes?: Prisma.ListeUpdateManyWithoutMembreNestedInput
+  signalements?: Prisma.SignalementUpdateManyWithoutMembreNestedInput
+  historiques?: Prisma.HistoriqueUpdateManyWithoutMembreNestedInput
+  abonnements?: Prisma.SuivreUpdateManyWithoutSuiveurNestedInput
+  abonnes?: Prisma.SuivreUpdateManyWithoutSuiviNestedInput
+  favoris?: Prisma.FavoriUpdateManyWithoutMembreNestedInput
+  podiums?: Prisma.PodiumUpdateManyWithoutMembreNestedInput
+}
+
+export type MembreUncheckedUpdateWithoutAvisInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  pseudo?: Prisma.StringFieldUpdateOperationsInput | string
+  nom?: Prisma.StringFieldUpdateOperationsInput | string
+  prenom?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  motDePasse?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  roleId?: Prisma.IntFieldUpdateOperationsInput | number
+  listes?: Prisma.ListeUncheckedUpdateManyWithoutMembreNestedInput
+  signalements?: Prisma.SignalementUncheckedUpdateManyWithoutMembreNestedInput
+  historiques?: Prisma.HistoriqueUncheckedUpdateManyWithoutMembreNestedInput
+  abonnements?: Prisma.SuivreUncheckedUpdateManyWithoutSuiveurNestedInput
+  abonnes?: Prisma.SuivreUncheckedUpdateManyWithoutSuiviNestedInput
+  favoris?: Prisma.FavoriUncheckedUpdateManyWithoutMembreNestedInput
+  podiums?: Prisma.PodiumUncheckedUpdateManyWithoutMembreNestedInput
+}
+
+export type MembreCreateWithoutHistoriquesInput = {
+  pseudo: string
+  nom: string
+  prenom: string
+  email: string
+  motDePasse: string
+  avatar?: string | null
+  dateInscription?: Date | string
+  biographie?: string | null
+  role: Prisma.RoleCreateNestedOneWithoutMembresInput
+  avis?: Prisma.AvisCreateNestedManyWithoutMembreInput
+  listes?: Prisma.ListeCreateNestedManyWithoutMembreInput
+  signalements?: Prisma.SignalementCreateNestedManyWithoutMembreInput
+  abonnements?: Prisma.SuivreCreateNestedManyWithoutSuiveurInput
+  abonnes?: Prisma.SuivreCreateNestedManyWithoutSuiviInput
+  favoris?: Prisma.FavoriCreateNestedManyWithoutMembreInput
+  podiums?: Prisma.PodiumCreateNestedManyWithoutMembreInput
+}
+
+export type MembreUncheckedCreateWithoutHistoriquesInput = {
+  id?: number
+  pseudo: string
+  nom: string
+  prenom: string
+  email: string
+  motDePasse: string
+  avatar?: string | null
+  dateInscription?: Date | string
+  biographie?: string | null
+  roleId: number
+  avis?: Prisma.AvisUncheckedCreateNestedManyWithoutMembreInput
+  listes?: Prisma.ListeUncheckedCreateNestedManyWithoutMembreInput
+  signalements?: Prisma.SignalementUncheckedCreateNestedManyWithoutMembreInput
+  abonnements?: Prisma.SuivreUncheckedCreateNestedManyWithoutSuiveurInput
+  abonnes?: Prisma.SuivreUncheckedCreateNestedManyWithoutSuiviInput
+  favoris?: Prisma.FavoriUncheckedCreateNestedManyWithoutMembreInput
+  podiums?: Prisma.PodiumUncheckedCreateNestedManyWithoutMembreInput
+}
+
+export type MembreCreateOrConnectWithoutHistoriquesInput = {
+  where: Prisma.MembreWhereUniqueInput
+  create: Prisma.XOR<Prisma.MembreCreateWithoutHistoriquesInput, Prisma.MembreUncheckedCreateWithoutHistoriquesInput>
+}
+
+export type MembreUpsertWithoutHistoriquesInput = {
+  update: Prisma.XOR<Prisma.MembreUpdateWithoutHistoriquesInput, Prisma.MembreUncheckedUpdateWithoutHistoriquesInput>
+  create: Prisma.XOR<Prisma.MembreCreateWithoutHistoriquesInput, Prisma.MembreUncheckedCreateWithoutHistoriquesInput>
+  where?: Prisma.MembreWhereInput
+}
+
+export type MembreUpdateToOneWithWhereWithoutHistoriquesInput = {
+  where?: Prisma.MembreWhereInput
+  data: Prisma.XOR<Prisma.MembreUpdateWithoutHistoriquesInput, Prisma.MembreUncheckedUpdateWithoutHistoriquesInput>
+}
+
+export type MembreUpdateWithoutHistoriquesInput = {
+  pseudo?: Prisma.StringFieldUpdateOperationsInput | string
+  nom?: Prisma.StringFieldUpdateOperationsInput | string
+  prenom?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  motDePasse?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.RoleUpdateOneRequiredWithoutMembresNestedInput
+  avis?: Prisma.AvisUpdateManyWithoutMembreNestedInput
+  listes?: Prisma.ListeUpdateManyWithoutMembreNestedInput
+  signalements?: Prisma.SignalementUpdateManyWithoutMembreNestedInput
+  abonnements?: Prisma.SuivreUpdateManyWithoutSuiveurNestedInput
+  abonnes?: Prisma.SuivreUpdateManyWithoutSuiviNestedInput
+  favoris?: Prisma.FavoriUpdateManyWithoutMembreNestedInput
+  podiums?: Prisma.PodiumUpdateManyWithoutMembreNestedInput
+}
+
+export type MembreUncheckedUpdateWithoutHistoriquesInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  pseudo?: Prisma.StringFieldUpdateOperationsInput | string
+  nom?: Prisma.StringFieldUpdateOperationsInput | string
+  prenom?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  motDePasse?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  roleId?: Prisma.IntFieldUpdateOperationsInput | number
+  avis?: Prisma.AvisUncheckedUpdateManyWithoutMembreNestedInput
+  listes?: Prisma.ListeUncheckedUpdateManyWithoutMembreNestedInput
+  signalements?: Prisma.SignalementUncheckedUpdateManyWithoutMembreNestedInput
+  abonnements?: Prisma.SuivreUncheckedUpdateManyWithoutSuiveurNestedInput
+  abonnes?: Prisma.SuivreUncheckedUpdateManyWithoutSuiviNestedInput
+  favoris?: Prisma.FavoriUncheckedUpdateManyWithoutMembreNestedInput
+  podiums?: Prisma.PodiumUncheckedUpdateManyWithoutMembreNestedInput
+}
+
+export type MembreCreateWithoutAbonnementsInput = {
+  pseudo: string
+  nom: string
+  prenom: string
+  email: string
+  motDePasse: string
+  avatar?: string | null
+  dateInscription?: Date | string
+  biographie?: string | null
+  role: Prisma.RoleCreateNestedOneWithoutMembresInput
+  avis?: Prisma.AvisCreateNestedManyWithoutMembreInput
+  listes?: Prisma.ListeCreateNestedManyWithoutMembreInput
+  signalements?: Prisma.SignalementCreateNestedManyWithoutMembreInput
+  historiques?: Prisma.HistoriqueCreateNestedManyWithoutMembreInput
+  abonnes?: Prisma.SuivreCreateNestedManyWithoutSuiviInput
+  favoris?: Prisma.FavoriCreateNestedManyWithoutMembreInput
+  podiums?: Prisma.PodiumCreateNestedManyWithoutMembreInput
+}
+
+export type MembreUncheckedCreateWithoutAbonnementsInput = {
+  id?: number
+  pseudo: string
+  nom: string
+  prenom: string
+  email: string
+  motDePasse: string
+  avatar?: string | null
+  dateInscription?: Date | string
+  biographie?: string | null
+  roleId: number
+  avis?: Prisma.AvisUncheckedCreateNestedManyWithoutMembreInput
+  listes?: Prisma.ListeUncheckedCreateNestedManyWithoutMembreInput
+  signalements?: Prisma.SignalementUncheckedCreateNestedManyWithoutMembreInput
+  historiques?: Prisma.HistoriqueUncheckedCreateNestedManyWithoutMembreInput
+  abonnes?: Prisma.SuivreUncheckedCreateNestedManyWithoutSuiviInput
+  favoris?: Prisma.FavoriUncheckedCreateNestedManyWithoutMembreInput
+  podiums?: Prisma.PodiumUncheckedCreateNestedManyWithoutMembreInput
+}
+
+export type MembreCreateOrConnectWithoutAbonnementsInput = {
+  where: Prisma.MembreWhereUniqueInput
+  create: Prisma.XOR<Prisma.MembreCreateWithoutAbonnementsInput, Prisma.MembreUncheckedCreateWithoutAbonnementsInput>
+}
+
+export type MembreCreateWithoutAbonnesInput = {
+  pseudo: string
+  nom: string
+  prenom: string
+  email: string
+  motDePasse: string
+  avatar?: string | null
+  dateInscription?: Date | string
+  biographie?: string | null
+  role: Prisma.RoleCreateNestedOneWithoutMembresInput
+  avis?: Prisma.AvisCreateNestedManyWithoutMembreInput
+  listes?: Prisma.ListeCreateNestedManyWithoutMembreInput
+  signalements?: Prisma.SignalementCreateNestedManyWithoutMembreInput
+  historiques?: Prisma.HistoriqueCreateNestedManyWithoutMembreInput
+  abonnements?: Prisma.SuivreCreateNestedManyWithoutSuiveurInput
+  favoris?: Prisma.FavoriCreateNestedManyWithoutMembreInput
+  podiums?: Prisma.PodiumCreateNestedManyWithoutMembreInput
+}
+
+export type MembreUncheckedCreateWithoutAbonnesInput = {
+  id?: number
+  pseudo: string
+  nom: string
+  prenom: string
+  email: string
+  motDePasse: string
+  avatar?: string | null
+  dateInscription?: Date | string
+  biographie?: string | null
+  roleId: number
+  avis?: Prisma.AvisUncheckedCreateNestedManyWithoutMembreInput
+  listes?: Prisma.ListeUncheckedCreateNestedManyWithoutMembreInput
+  signalements?: Prisma.SignalementUncheckedCreateNestedManyWithoutMembreInput
+  historiques?: Prisma.HistoriqueUncheckedCreateNestedManyWithoutMembreInput
+  abonnements?: Prisma.SuivreUncheckedCreateNestedManyWithoutSuiveurInput
+  favoris?: Prisma.FavoriUncheckedCreateNestedManyWithoutMembreInput
+  podiums?: Prisma.PodiumUncheckedCreateNestedManyWithoutMembreInput
+}
+
+export type MembreCreateOrConnectWithoutAbonnesInput = {
+  where: Prisma.MembreWhereUniqueInput
+  create: Prisma.XOR<Prisma.MembreCreateWithoutAbonnesInput, Prisma.MembreUncheckedCreateWithoutAbonnesInput>
+}
+
+export type MembreUpsertWithoutAbonnementsInput = {
+  update: Prisma.XOR<Prisma.MembreUpdateWithoutAbonnementsInput, Prisma.MembreUncheckedUpdateWithoutAbonnementsInput>
+  create: Prisma.XOR<Prisma.MembreCreateWithoutAbonnementsInput, Prisma.MembreUncheckedCreateWithoutAbonnementsInput>
+  where?: Prisma.MembreWhereInput
+}
+
+export type MembreUpdateToOneWithWhereWithoutAbonnementsInput = {
+  where?: Prisma.MembreWhereInput
+  data: Prisma.XOR<Prisma.MembreUpdateWithoutAbonnementsInput, Prisma.MembreUncheckedUpdateWithoutAbonnementsInput>
+}
+
+export type MembreUpdateWithoutAbonnementsInput = {
+  pseudo?: Prisma.StringFieldUpdateOperationsInput | string
+  nom?: Prisma.StringFieldUpdateOperationsInput | string
+  prenom?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  motDePasse?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.RoleUpdateOneRequiredWithoutMembresNestedInput
+  avis?: Prisma.AvisUpdateManyWithoutMembreNestedInput
+  listes?: Prisma.ListeUpdateManyWithoutMembreNestedInput
+  signalements?: Prisma.SignalementUpdateManyWithoutMembreNestedInput
+  historiques?: Prisma.HistoriqueUpdateManyWithoutMembreNestedInput
+  abonnes?: Prisma.SuivreUpdateManyWithoutSuiviNestedInput
+  favoris?: Prisma.FavoriUpdateManyWithoutMembreNestedInput
+  podiums?: Prisma.PodiumUpdateManyWithoutMembreNestedInput
+}
+
+export type MembreUncheckedUpdateWithoutAbonnementsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  pseudo?: Prisma.StringFieldUpdateOperationsInput | string
+  nom?: Prisma.StringFieldUpdateOperationsInput | string
+  prenom?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  motDePasse?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  roleId?: Prisma.IntFieldUpdateOperationsInput | number
+  avis?: Prisma.AvisUncheckedUpdateManyWithoutMembreNestedInput
+  listes?: Prisma.ListeUncheckedUpdateManyWithoutMembreNestedInput
+  signalements?: Prisma.SignalementUncheckedUpdateManyWithoutMembreNestedInput
+  historiques?: Prisma.HistoriqueUncheckedUpdateManyWithoutMembreNestedInput
+  abonnes?: Prisma.SuivreUncheckedUpdateManyWithoutSuiviNestedInput
+  favoris?: Prisma.FavoriUncheckedUpdateManyWithoutMembreNestedInput
+  podiums?: Prisma.PodiumUncheckedUpdateManyWithoutMembreNestedInput
+}
+
+export type MembreUpsertWithoutAbonnesInput = {
+  update: Prisma.XOR<Prisma.MembreUpdateWithoutAbonnesInput, Prisma.MembreUncheckedUpdateWithoutAbonnesInput>
+  create: Prisma.XOR<Prisma.MembreCreateWithoutAbonnesInput, Prisma.MembreUncheckedCreateWithoutAbonnesInput>
+  where?: Prisma.MembreWhereInput
+}
+
+export type MembreUpdateToOneWithWhereWithoutAbonnesInput = {
+  where?: Prisma.MembreWhereInput
+  data: Prisma.XOR<Prisma.MembreUpdateWithoutAbonnesInput, Prisma.MembreUncheckedUpdateWithoutAbonnesInput>
+}
+
+export type MembreUpdateWithoutAbonnesInput = {
+  pseudo?: Prisma.StringFieldUpdateOperationsInput | string
+  nom?: Prisma.StringFieldUpdateOperationsInput | string
+  prenom?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  motDePasse?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.RoleUpdateOneRequiredWithoutMembresNestedInput
+  avis?: Prisma.AvisUpdateManyWithoutMembreNestedInput
+  listes?: Prisma.ListeUpdateManyWithoutMembreNestedInput
+  signalements?: Prisma.SignalementUpdateManyWithoutMembreNestedInput
+  historiques?: Prisma.HistoriqueUpdateManyWithoutMembreNestedInput
+  abonnements?: Prisma.SuivreUpdateManyWithoutSuiveurNestedInput
+  favoris?: Prisma.FavoriUpdateManyWithoutMembreNestedInput
+  podiums?: Prisma.PodiumUpdateManyWithoutMembreNestedInput
+}
+
+export type MembreUncheckedUpdateWithoutAbonnesInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  pseudo?: Prisma.StringFieldUpdateOperationsInput | string
+  nom?: Prisma.StringFieldUpdateOperationsInput | string
+  prenom?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  motDePasse?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  roleId?: Prisma.IntFieldUpdateOperationsInput | number
+  avis?: Prisma.AvisUncheckedUpdateManyWithoutMembreNestedInput
+  listes?: Prisma.ListeUncheckedUpdateManyWithoutMembreNestedInput
+  signalements?: Prisma.SignalementUncheckedUpdateManyWithoutMembreNestedInput
+  historiques?: Prisma.HistoriqueUncheckedUpdateManyWithoutMembreNestedInput
+  abonnements?: Prisma.SuivreUncheckedUpdateManyWithoutSuiveurNestedInput
+  favoris?: Prisma.FavoriUncheckedUpdateManyWithoutMembreNestedInput
+  podiums?: Prisma.PodiumUncheckedUpdateManyWithoutMembreNestedInput
+}
+
+export type MembreCreateWithoutFavorisInput = {
+  pseudo: string
+  nom: string
+  prenom: string
+  email: string
+  motDePasse: string
+  avatar?: string | null
+  dateInscription?: Date | string
+  biographie?: string | null
+  role: Prisma.RoleCreateNestedOneWithoutMembresInput
+  avis?: Prisma.AvisCreateNestedManyWithoutMembreInput
+  listes?: Prisma.ListeCreateNestedManyWithoutMembreInput
+  signalements?: Prisma.SignalementCreateNestedManyWithoutMembreInput
+  historiques?: Prisma.HistoriqueCreateNestedManyWithoutMembreInput
+  abonnements?: Prisma.SuivreCreateNestedManyWithoutSuiveurInput
+  abonnes?: Prisma.SuivreCreateNestedManyWithoutSuiviInput
+  podiums?: Prisma.PodiumCreateNestedManyWithoutMembreInput
+}
+
+export type MembreUncheckedCreateWithoutFavorisInput = {
+  id?: number
+  pseudo: string
+  nom: string
+  prenom: string
+  email: string
+  motDePasse: string
+  avatar?: string | null
+  dateInscription?: Date | string
+  biographie?: string | null
+  roleId: number
+  avis?: Prisma.AvisUncheckedCreateNestedManyWithoutMembreInput
+  listes?: Prisma.ListeUncheckedCreateNestedManyWithoutMembreInput
+  signalements?: Prisma.SignalementUncheckedCreateNestedManyWithoutMembreInput
+  historiques?: Prisma.HistoriqueUncheckedCreateNestedManyWithoutMembreInput
+  abonnements?: Prisma.SuivreUncheckedCreateNestedManyWithoutSuiveurInput
+  abonnes?: Prisma.SuivreUncheckedCreateNestedManyWithoutSuiviInput
+  podiums?: Prisma.PodiumUncheckedCreateNestedManyWithoutMembreInput
+}
+
+export type MembreCreateOrConnectWithoutFavorisInput = {
+  where: Prisma.MembreWhereUniqueInput
+  create: Prisma.XOR<Prisma.MembreCreateWithoutFavorisInput, Prisma.MembreUncheckedCreateWithoutFavorisInput>
+}
+
+export type MembreUpsertWithoutFavorisInput = {
+  update: Prisma.XOR<Prisma.MembreUpdateWithoutFavorisInput, Prisma.MembreUncheckedUpdateWithoutFavorisInput>
+  create: Prisma.XOR<Prisma.MembreCreateWithoutFavorisInput, Prisma.MembreUncheckedCreateWithoutFavorisInput>
+  where?: Prisma.MembreWhereInput
+}
+
+export type MembreUpdateToOneWithWhereWithoutFavorisInput = {
+  where?: Prisma.MembreWhereInput
+  data: Prisma.XOR<Prisma.MembreUpdateWithoutFavorisInput, Prisma.MembreUncheckedUpdateWithoutFavorisInput>
+}
+
+export type MembreUpdateWithoutFavorisInput = {
+  pseudo?: Prisma.StringFieldUpdateOperationsInput | string
+  nom?: Prisma.StringFieldUpdateOperationsInput | string
+  prenom?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  motDePasse?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.RoleUpdateOneRequiredWithoutMembresNestedInput
+  avis?: Prisma.AvisUpdateManyWithoutMembreNestedInput
+  listes?: Prisma.ListeUpdateManyWithoutMembreNestedInput
+  signalements?: Prisma.SignalementUpdateManyWithoutMembreNestedInput
+  historiques?: Prisma.HistoriqueUpdateManyWithoutMembreNestedInput
+  abonnements?: Prisma.SuivreUpdateManyWithoutSuiveurNestedInput
+  abonnes?: Prisma.SuivreUpdateManyWithoutSuiviNestedInput
+  podiums?: Prisma.PodiumUpdateManyWithoutMembreNestedInput
+}
+
+export type MembreUncheckedUpdateWithoutFavorisInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  pseudo?: Prisma.StringFieldUpdateOperationsInput | string
+  nom?: Prisma.StringFieldUpdateOperationsInput | string
+  prenom?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  motDePasse?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  roleId?: Prisma.IntFieldUpdateOperationsInput | number
+  avis?: Prisma.AvisUncheckedUpdateManyWithoutMembreNestedInput
+  listes?: Prisma.ListeUncheckedUpdateManyWithoutMembreNestedInput
+  signalements?: Prisma.SignalementUncheckedUpdateManyWithoutMembreNestedInput
+  historiques?: Prisma.HistoriqueUncheckedUpdateManyWithoutMembreNestedInput
+  abonnements?: Prisma.SuivreUncheckedUpdateManyWithoutSuiveurNestedInput
+  abonnes?: Prisma.SuivreUncheckedUpdateManyWithoutSuiviNestedInput
+  podiums?: Prisma.PodiumUncheckedUpdateManyWithoutMembreNestedInput
+}
+
+export type MembreCreateWithoutPodiumsInput = {
+  pseudo: string
+  nom: string
+  prenom: string
+  email: string
+  motDePasse: string
+  avatar?: string | null
+  dateInscription?: Date | string
+  biographie?: string | null
+  role: Prisma.RoleCreateNestedOneWithoutMembresInput
+  avis?: Prisma.AvisCreateNestedManyWithoutMembreInput
+  listes?: Prisma.ListeCreateNestedManyWithoutMembreInput
+  signalements?: Prisma.SignalementCreateNestedManyWithoutMembreInput
+  historiques?: Prisma.HistoriqueCreateNestedManyWithoutMembreInput
+  abonnements?: Prisma.SuivreCreateNestedManyWithoutSuiveurInput
+  abonnes?: Prisma.SuivreCreateNestedManyWithoutSuiviInput
+  favoris?: Prisma.FavoriCreateNestedManyWithoutMembreInput
+}
+
+export type MembreUncheckedCreateWithoutPodiumsInput = {
+  id?: number
+  pseudo: string
+  nom: string
+  prenom: string
+  email: string
+  motDePasse: string
+  avatar?: string | null
+  dateInscription?: Date | string
+  biographie?: string | null
+  roleId: number
+  avis?: Prisma.AvisUncheckedCreateNestedManyWithoutMembreInput
+  listes?: Prisma.ListeUncheckedCreateNestedManyWithoutMembreInput
+  signalements?: Prisma.SignalementUncheckedCreateNestedManyWithoutMembreInput
+  historiques?: Prisma.HistoriqueUncheckedCreateNestedManyWithoutMembreInput
+  abonnements?: Prisma.SuivreUncheckedCreateNestedManyWithoutSuiveurInput
+  abonnes?: Prisma.SuivreUncheckedCreateNestedManyWithoutSuiviInput
+  favoris?: Prisma.FavoriUncheckedCreateNestedManyWithoutMembreInput
+}
+
+export type MembreCreateOrConnectWithoutPodiumsInput = {
+  where: Prisma.MembreWhereUniqueInput
+  create: Prisma.XOR<Prisma.MembreCreateWithoutPodiumsInput, Prisma.MembreUncheckedCreateWithoutPodiumsInput>
+}
+
+export type MembreUpsertWithoutPodiumsInput = {
+  update: Prisma.XOR<Prisma.MembreUpdateWithoutPodiumsInput, Prisma.MembreUncheckedUpdateWithoutPodiumsInput>
+  create: Prisma.XOR<Prisma.MembreCreateWithoutPodiumsInput, Prisma.MembreUncheckedCreateWithoutPodiumsInput>
+  where?: Prisma.MembreWhereInput
+}
+
+export type MembreUpdateToOneWithWhereWithoutPodiumsInput = {
+  where?: Prisma.MembreWhereInput
+  data: Prisma.XOR<Prisma.MembreUpdateWithoutPodiumsInput, Prisma.MembreUncheckedUpdateWithoutPodiumsInput>
+}
+
+export type MembreUpdateWithoutPodiumsInput = {
+  pseudo?: Prisma.StringFieldUpdateOperationsInput | string
+  nom?: Prisma.StringFieldUpdateOperationsInput | string
+  prenom?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  motDePasse?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.RoleUpdateOneRequiredWithoutMembresNestedInput
+  avis?: Prisma.AvisUpdateManyWithoutMembreNestedInput
+  listes?: Prisma.ListeUpdateManyWithoutMembreNestedInput
+  signalements?: Prisma.SignalementUpdateManyWithoutMembreNestedInput
+  historiques?: Prisma.HistoriqueUpdateManyWithoutMembreNestedInput
+  abonnements?: Prisma.SuivreUpdateManyWithoutSuiveurNestedInput
+  abonnes?: Prisma.SuivreUpdateManyWithoutSuiviNestedInput
+  favoris?: Prisma.FavoriUpdateManyWithoutMembreNestedInput
+}
+
+export type MembreUncheckedUpdateWithoutPodiumsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  pseudo?: Prisma.StringFieldUpdateOperationsInput | string
+  nom?: Prisma.StringFieldUpdateOperationsInput | string
+  prenom?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  motDePasse?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  roleId?: Prisma.IntFieldUpdateOperationsInput | number
+  avis?: Prisma.AvisUncheckedUpdateManyWithoutMembreNestedInput
+  listes?: Prisma.ListeUncheckedUpdateManyWithoutMembreNestedInput
+  signalements?: Prisma.SignalementUncheckedUpdateManyWithoutMembreNestedInput
+  historiques?: Prisma.HistoriqueUncheckedUpdateManyWithoutMembreNestedInput
+  abonnements?: Prisma.SuivreUncheckedUpdateManyWithoutSuiveurNestedInput
+  abonnes?: Prisma.SuivreUncheckedUpdateManyWithoutSuiviNestedInput
+  favoris?: Prisma.FavoriUncheckedUpdateManyWithoutMembreNestedInput
+}
+
 export type MembreCreateManyRoleInput = {
   id?: number
   pseudo: string
@@ -610,6 +1551,14 @@ export type MembreUpdateWithoutRoleInput = {
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avis?: Prisma.AvisUpdateManyWithoutMembreNestedInput
+  listes?: Prisma.ListeUpdateManyWithoutMembreNestedInput
+  signalements?: Prisma.SignalementUpdateManyWithoutMembreNestedInput
+  historiques?: Prisma.HistoriqueUpdateManyWithoutMembreNestedInput
+  abonnements?: Prisma.SuivreUpdateManyWithoutSuiveurNestedInput
+  abonnes?: Prisma.SuivreUpdateManyWithoutSuiviNestedInput
+  favoris?: Prisma.FavoriUpdateManyWithoutMembreNestedInput
+  podiums?: Prisma.PodiumUpdateManyWithoutMembreNestedInput
 }
 
 export type MembreUncheckedUpdateWithoutRoleInput = {
@@ -622,6 +1571,14 @@ export type MembreUncheckedUpdateWithoutRoleInput = {
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dateInscription?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   biographie?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avis?: Prisma.AvisUncheckedUpdateManyWithoutMembreNestedInput
+  listes?: Prisma.ListeUncheckedUpdateManyWithoutMembreNestedInput
+  signalements?: Prisma.SignalementUncheckedUpdateManyWithoutMembreNestedInput
+  historiques?: Prisma.HistoriqueUncheckedUpdateManyWithoutMembreNestedInput
+  abonnements?: Prisma.SuivreUncheckedUpdateManyWithoutSuiveurNestedInput
+  abonnes?: Prisma.SuivreUncheckedUpdateManyWithoutSuiviNestedInput
+  favoris?: Prisma.FavoriUncheckedUpdateManyWithoutMembreNestedInput
+  podiums?: Prisma.PodiumUncheckedUpdateManyWithoutMembreNestedInput
 }
 
 export type MembreUncheckedUpdateManyWithoutRoleInput = {
@@ -637,6 +1594,98 @@ export type MembreUncheckedUpdateManyWithoutRoleInput = {
 }
 
 
+/**
+ * Count Type MembreCountOutputType
+ */
+
+export type MembreCountOutputType = {
+  avis: number
+  listes: number
+  signalements: number
+  historiques: number
+  abonnements: number
+  abonnes: number
+  favoris: number
+  podiums: number
+}
+
+export type MembreCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  avis?: boolean | MembreCountOutputTypeCountAvisArgs
+  listes?: boolean | MembreCountOutputTypeCountListesArgs
+  signalements?: boolean | MembreCountOutputTypeCountSignalementsArgs
+  historiques?: boolean | MembreCountOutputTypeCountHistoriquesArgs
+  abonnements?: boolean | MembreCountOutputTypeCountAbonnementsArgs
+  abonnes?: boolean | MembreCountOutputTypeCountAbonnesArgs
+  favoris?: boolean | MembreCountOutputTypeCountFavorisArgs
+  podiums?: boolean | MembreCountOutputTypeCountPodiumsArgs
+}
+
+/**
+ * MembreCountOutputType without action
+ */
+export type MembreCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MembreCountOutputType
+   */
+  select?: Prisma.MembreCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * MembreCountOutputType without action
+ */
+export type MembreCountOutputTypeCountAvisArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AvisWhereInput
+}
+
+/**
+ * MembreCountOutputType without action
+ */
+export type MembreCountOutputTypeCountListesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ListeWhereInput
+}
+
+/**
+ * MembreCountOutputType without action
+ */
+export type MembreCountOutputTypeCountSignalementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SignalementWhereInput
+}
+
+/**
+ * MembreCountOutputType without action
+ */
+export type MembreCountOutputTypeCountHistoriquesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.HistoriqueWhereInput
+}
+
+/**
+ * MembreCountOutputType without action
+ */
+export type MembreCountOutputTypeCountAbonnementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SuivreWhereInput
+}
+
+/**
+ * MembreCountOutputType without action
+ */
+export type MembreCountOutputTypeCountAbonnesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SuivreWhereInput
+}
+
+/**
+ * MembreCountOutputType without action
+ */
+export type MembreCountOutputTypeCountFavorisArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.FavoriWhereInput
+}
+
+/**
+ * MembreCountOutputType without action
+ */
+export type MembreCountOutputTypeCountPodiumsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PodiumWhereInput
+}
+
 
 export type MembreSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -650,6 +1699,15 @@ export type MembreSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   biographie?: boolean
   roleId?: boolean
   role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
+  avis?: boolean | Prisma.Membre$avisArgs<ExtArgs>
+  listes?: boolean | Prisma.Membre$listesArgs<ExtArgs>
+  signalements?: boolean | Prisma.Membre$signalementsArgs<ExtArgs>
+  historiques?: boolean | Prisma.Membre$historiquesArgs<ExtArgs>
+  abonnements?: boolean | Prisma.Membre$abonnementsArgs<ExtArgs>
+  abonnes?: boolean | Prisma.Membre$abonnesArgs<ExtArgs>
+  favoris?: boolean | Prisma.Membre$favorisArgs<ExtArgs>
+  podiums?: boolean | Prisma.Membre$podiumsArgs<ExtArgs>
+  _count?: boolean | Prisma.MembreCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["membre"]>
 
 export type MembreSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -696,6 +1754,15 @@ export type MembreSelectScalar = {
 export type MembreOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "pseudo" | "nom" | "prenom" | "email" | "motDePasse" | "avatar" | "dateInscription" | "biographie" | "roleId", ExtArgs["result"]["membre"]>
 export type MembreInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
+  avis?: boolean | Prisma.Membre$avisArgs<ExtArgs>
+  listes?: boolean | Prisma.Membre$listesArgs<ExtArgs>
+  signalements?: boolean | Prisma.Membre$signalementsArgs<ExtArgs>
+  historiques?: boolean | Prisma.Membre$historiquesArgs<ExtArgs>
+  abonnements?: boolean | Prisma.Membre$abonnementsArgs<ExtArgs>
+  abonnes?: boolean | Prisma.Membre$abonnesArgs<ExtArgs>
+  favoris?: boolean | Prisma.Membre$favorisArgs<ExtArgs>
+  podiums?: boolean | Prisma.Membre$podiumsArgs<ExtArgs>
+  _count?: boolean | Prisma.MembreCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type MembreIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
@@ -708,6 +1775,14 @@ export type $MembrePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
   name: "Membre"
   objects: {
     role: Prisma.$RolePayload<ExtArgs>
+    avis: Prisma.$AvisPayload<ExtArgs>[]
+    listes: Prisma.$ListePayload<ExtArgs>[]
+    signalements: Prisma.$SignalementPayload<ExtArgs>[]
+    historiques: Prisma.$HistoriquePayload<ExtArgs>[]
+    abonnements: Prisma.$SuivrePayload<ExtArgs>[]
+    abonnes: Prisma.$SuivrePayload<ExtArgs>[]
+    favoris: Prisma.$FavoriPayload<ExtArgs>[]
+    podiums: Prisma.$PodiumPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1115,6 +2190,14 @@ readonly fields: MembreFieldRefs;
 export interface Prisma__MembreClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   role<T extends Prisma.RoleDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RoleDefaultArgs<ExtArgs>>): Prisma.Prisma__RoleClient<runtime.Types.Result.GetResult<Prisma.$RolePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  avis<T extends Prisma.Membre$avisArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Membre$avisArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AvisPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  listes<T extends Prisma.Membre$listesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Membre$listesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ListePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  signalements<T extends Prisma.Membre$signalementsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Membre$signalementsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SignalementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  historiques<T extends Prisma.Membre$historiquesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Membre$historiquesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$HistoriquePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  abonnements<T extends Prisma.Membre$abonnementsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Membre$abonnementsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SuivrePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  abonnes<T extends Prisma.Membre$abonnesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Membre$abonnesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SuivrePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  favoris<T extends Prisma.Membre$favorisArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Membre$favorisArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FavoriPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  podiums<T extends Prisma.Membre$podiumsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Membre$podiumsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PodiumPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1552,6 +2635,198 @@ export type MembreDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Limit how many Membres to delete.
    */
   limit?: number
+}
+
+/**
+ * Membre.avis
+ */
+export type Membre$avisArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Avis
+   */
+  select?: Prisma.AvisSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Avis
+   */
+  omit?: Prisma.AvisOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AvisInclude<ExtArgs> | null
+  where?: Prisma.AvisWhereInput
+  orderBy?: Prisma.AvisOrderByWithRelationInput | Prisma.AvisOrderByWithRelationInput[]
+  cursor?: Prisma.AvisWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AvisScalarFieldEnum | Prisma.AvisScalarFieldEnum[]
+}
+
+/**
+ * Membre.listes
+ */
+export type Membre$listesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Liste
+   */
+  select?: Prisma.ListeSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Liste
+   */
+  omit?: Prisma.ListeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ListeInclude<ExtArgs> | null
+  where?: Prisma.ListeWhereInput
+  orderBy?: Prisma.ListeOrderByWithRelationInput | Prisma.ListeOrderByWithRelationInput[]
+  cursor?: Prisma.ListeWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ListeScalarFieldEnum | Prisma.ListeScalarFieldEnum[]
+}
+
+/**
+ * Membre.signalements
+ */
+export type Membre$signalementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Signalement
+   */
+  select?: Prisma.SignalementSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Signalement
+   */
+  omit?: Prisma.SignalementOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SignalementInclude<ExtArgs> | null
+  where?: Prisma.SignalementWhereInput
+  orderBy?: Prisma.SignalementOrderByWithRelationInput | Prisma.SignalementOrderByWithRelationInput[]
+  cursor?: Prisma.SignalementWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SignalementScalarFieldEnum | Prisma.SignalementScalarFieldEnum[]
+}
+
+/**
+ * Membre.historiques
+ */
+export type Membre$historiquesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Historique
+   */
+  select?: Prisma.HistoriqueSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Historique
+   */
+  omit?: Prisma.HistoriqueOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.HistoriqueInclude<ExtArgs> | null
+  where?: Prisma.HistoriqueWhereInput
+  orderBy?: Prisma.HistoriqueOrderByWithRelationInput | Prisma.HistoriqueOrderByWithRelationInput[]
+  cursor?: Prisma.HistoriqueWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.HistoriqueScalarFieldEnum | Prisma.HistoriqueScalarFieldEnum[]
+}
+
+/**
+ * Membre.abonnements
+ */
+export type Membre$abonnementsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Suivre
+   */
+  select?: Prisma.SuivreSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Suivre
+   */
+  omit?: Prisma.SuivreOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SuivreInclude<ExtArgs> | null
+  where?: Prisma.SuivreWhereInput
+  orderBy?: Prisma.SuivreOrderByWithRelationInput | Prisma.SuivreOrderByWithRelationInput[]
+  cursor?: Prisma.SuivreWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SuivreScalarFieldEnum | Prisma.SuivreScalarFieldEnum[]
+}
+
+/**
+ * Membre.abonnes
+ */
+export type Membre$abonnesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Suivre
+   */
+  select?: Prisma.SuivreSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Suivre
+   */
+  omit?: Prisma.SuivreOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SuivreInclude<ExtArgs> | null
+  where?: Prisma.SuivreWhereInput
+  orderBy?: Prisma.SuivreOrderByWithRelationInput | Prisma.SuivreOrderByWithRelationInput[]
+  cursor?: Prisma.SuivreWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SuivreScalarFieldEnum | Prisma.SuivreScalarFieldEnum[]
+}
+
+/**
+ * Membre.favoris
+ */
+export type Membre$favorisArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Favori
+   */
+  select?: Prisma.FavoriSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Favori
+   */
+  omit?: Prisma.FavoriOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FavoriInclude<ExtArgs> | null
+  where?: Prisma.FavoriWhereInput
+  orderBy?: Prisma.FavoriOrderByWithRelationInput | Prisma.FavoriOrderByWithRelationInput[]
+  cursor?: Prisma.FavoriWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.FavoriScalarFieldEnum | Prisma.FavoriScalarFieldEnum[]
+}
+
+/**
+ * Membre.podiums
+ */
+export type Membre$podiumsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Podium
+   */
+  select?: Prisma.PodiumSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Podium
+   */
+  omit?: Prisma.PodiumOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PodiumInclude<ExtArgs> | null
+  where?: Prisma.PodiumWhereInput
+  orderBy?: Prisma.PodiumOrderByWithRelationInput | Prisma.PodiumOrderByWithRelationInput[]
+  cursor?: Prisma.PodiumWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PodiumScalarFieldEnum | Prisma.PodiumScalarFieldEnum[]
 }
 
 /**
